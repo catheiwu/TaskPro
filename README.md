@@ -4,7 +4,7 @@
 # TASK MANAGER TEMPORARY NAME 
  > Your author list below should include links to all members GitHub (remove existing author).
  
- > Authors: [Faris Mohammady]((https://github.com/faris-mohammady)),
+ > Authors: [Faris Mohammady](https://github.com/faris-mohammady),
  >          [Banff Jiang]((http://github.com/banffjiang)),
  >          [Cathy Wu]((http://github.com/catheiwu)),
  >          [Xiaopei Wang]((http://GitHub.com/seanxpw)) 
