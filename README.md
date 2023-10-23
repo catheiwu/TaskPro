@@ -19,12 +19,13 @@
 > * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group. You will need to hold two to three scrum/check-in meetings with your lab TA/reader at different times in addition to the final demo.
 
 ## Project Description
- > As a university student or student in general, it is extremely important to schedule your upcoming assignments and events well, as it can be stressful when not planned properly. Having a tool that organizes your tasks cleanly minimizes stress levels and allows students to appropriately focus on what's ahead of them.
- > We plan to entirely code this project in C++. We will use VSCode to code, and GitHub to collaborate with our team and keep track of what each person is doing. 
- > The user of our tool will input a list of tasks that they want to keep track of. The output will be their lists of tasks they have to do and the date they have to complete them. 
- > In this application, users can create separate lists with different subtasks in them. For example, a user can create a list called "Study for midterm" and the subtasks can be "Do study guide, review lecture notes, review past assignments." Additionally, the tasks are labeled with the date they were created, and a date to complete them by. 
+ > * As a university student or student in general, it is extremely important to schedule your upcoming assignments and events well, as it can be stressful when not planned properly. Having a tool that organizes your tasks cleanly minimizes stress levels and allows students to appropriately focus on what's ahead of them.
+
+ > * We plan to entirely code this project in C++. We will use VSCode to code, and GitHub to collaborate with our team and keep track of what each person is doing. 
+ > * The user of our tool will input a list of tasks that they want to keep track of. The output will be their lists of tasks they have to do and the date they have to complete them. 
+ > * In this application, users can create separate lists with different subtasks in them. For example, a user can create a list called "Study for midterm" and the subtasks can be "Do study guide, review lecture notes, review past assignments." Additionally, the tasks are labeled with the date they were created, and a date to complete them by. 
  > 
- > You also need to set up an empty project board using GitHub projects (board view). Make sure you add the board under your project repository. You should also have a Product Backlog and In testing columns added.
+ > * You also need to set up an empty project board using GitHub projects (board view). Make sure you add the board under your project repository. You should also have a Product Backlog and In testing columns added.
  > ## Phase II
  > In addition to completing the "User Interface Specification" and "Class Diagram" sections below, you will need to:
  > * Create an "Epic" (note) for each feature. Place these epics in the `Product Backlog` column
