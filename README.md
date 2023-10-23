@@ -25,7 +25,7 @@
  > * The user of our tool will input a list of tasks that they want to keep track of. The output will be their lists of tasks they have to do and the date they have to complete them. 
  > * In this application, users can create separate lists with different subtasks in them. For example, a user can create a list called "Study for midterm" and the subtasks can be "Do study guide, review lecture notes, review past assignments." Additionally, the tasks are labeled with the date they were created, and a date to complete them by. 
  > 
- > * You also need to set up an empty project board using GitHub projects (board view). Make sure you add the board under your project repository. You should also have a Product Backlog and In testing columns added.
+ 
  > ## Phase II
  > In addition to completing the "User Interface Specification" and "Class Diagram" sections below, you will need to:
  > * Create an "Epic" (note) for each feature. Place these epics in the `Product Backlog` column
