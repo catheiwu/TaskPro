@@ -24,7 +24,9 @@
  > * We plan to entirely code this project in C++. We will use VSCode to code, and GitHub to collaborate with our team and keep track of what each person is doing. 
  > * The user of our tool will input a list of tasks that they want to keep track of. The output will be their lists of tasks they have to do and the date they have to complete them. 
  > * In this application, users can create separate lists with different subtasks in them. For example, a user can create a list called "Study for midterm" and the subtasks can be "Do study guide, review lecture notes, review past assignments." Additionally, the tasks are labeled with the date they were created, and a date to complete them by. 
- > 
+ > * Implement features where users can easily delete and add their custom tasks
+ > * Implement a sort feature by highest priority (closest due date)
+ > * Possibly add a functional reminder where it notifies the user if a task is upcoming
  
  > ## Phase II
  > In addition to completing the "User Interface Specification" and "Class Diagram" sections below, you will need to:
