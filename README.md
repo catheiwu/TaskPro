@@ -15,7 +15,6 @@
  > * Implement a sort feature by highest priority (closest due date)
  
  > ## Phase II
-![image](https://github.com/cs100/final-project-fmoha020-cwu247-bjian018-xwang571/assets/146904259/28dcd945-8bae-46bb-8feb-862f08059501)
 <img src="https://github.com/cs100/final-project-fmoha020-cwu247-bjian018-xwang571/assets/146904259/28dcd945-8bae-46bb-8feb-862f08059501" alt="drawing" width="500"/>
  > * Create an "Epic" (note) for each feature. Place these epics in the `Product Backlog` column
  > * Complete your first *sprint planning* meeting to plan out the next 7 days of work.
