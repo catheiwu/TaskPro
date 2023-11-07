@@ -15,7 +15,7 @@
  > * Implement a sort feature by highest priority (closest due date)
  
  > ## Phase II
-<img src="https://github.com/cs100/final-project-fmoha020-cwu247-bjian018-xwang571/assets/146904259/28dcd945-8bae-46bb-8feb-862f08059501" alt="drawing" width="500"/>
+<img src="https://github.com/cs100/final-project-fmoha020-cwu247-bjian018-xwang571/assets/146904259/28dcd945-8bae-46bb-8feb-862f08059501" alt="class" width="500" title="class diagram"/>
 
 <!-- 
  > * Create an "Epic" (note) for each feature. Place these epics in the `Product Backlog` column
