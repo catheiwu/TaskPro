@@ -2,7 +2,7 @@
 #define DEADLINE_H
 
 #include<ctime>
-
+#include <string>
 
 class DeadLine
 {
@@ -10,16 +10,8 @@ private:
     struct tm* ddl;
 
 public:
-    virtual string getDdl() = 0;
-    virtual string
+    string getDdl();
+    void editDdl(struct tm* newTime);
 };
-
-DeadLine::DeadLine(/* args */)
-{
-}
-
-DeadLine::~DeadLine()
-{
-}
 
 #endif
