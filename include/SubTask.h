@@ -1,4 +1,5 @@
-
+#ifndef
+#define SUBTASK_H
 
 
 class SubTask
@@ -9,3 +10,5 @@ public:
     SubTask(/* args */);
     ~SubTask();
 };
+
+#endif
