@@ -30,7 +30,7 @@
  ![image](https://github.com/cs100/final-project-fmoha020-cwu247-bjian018-xwang571/assets/146904259/810adb7f-0b0d-46e6-b2fd-ff0111ae1f4c)
 
 >## Class Diagram
-<img src="(https://github.com/cs100/final-project-fmoha020-cwu247-bjian018-xwang571/assets/89694133/2727ec85-223b-41c6-9ce5-e6209401f442" alt="class" width="500" title="class diagram">
+<img src="https://github.com/cs100/final-project-fmoha020-cwu247-bjian018-xwang571/assets/89694133/2727ec85-223b-41c6-9ce5-e6209401f442" alt="class" width="500" title="class diagram">
 
 <!--### Screen Layouts
 > Include the layout of each of your screens. The layout should describe the screen’s major components such as menus and prompts for user inputs, expected output, and buttons (if applicable). Explain what is on the layout, and the purpose of each menu item, button, etc. If many screens share the same layout, start by describing the general layout and then list the screens that will be using that layout and the differences between each of them.
