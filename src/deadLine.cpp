@@ -7,7 +7,7 @@ void DeadLine::editDdl(struct tm *newTime)
     ddl = newTime;
 }
 
-string DeadLine::getDdl()
+std::string DeadLine::getDdl()
 {
-    return (DeadLine::ddl);
+    return (asctime(ddl));
 }

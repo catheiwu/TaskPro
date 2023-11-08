@@ -1,0 +1,4 @@
+when run cmake
+cd build/
+and run cmake ..
+This keeps the folders clean.

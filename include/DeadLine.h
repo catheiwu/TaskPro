@@ -10,7 +10,7 @@ private:
     struct tm* ddl;
 
 public:
-    string getDdl();
+    std::string getDdl();
     void editDdl(struct tm* newTime);
 };
 
