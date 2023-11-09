@@ -10,6 +10,9 @@ private:
     struct tm* ddl;
 
 public:
+    DeadLine();
+    DeadLine(struct tm*);
+    ~DeadLine();
     std::string getDdl();
     void editDdl(struct tm* newTime);
 };
