@@ -18,7 +18,7 @@ private:
     uint numSubtasks;
 
 public:
-    Task(DeadLine* dl);
+    Task(DeadLine* dl,Description* des);
     Task();
     ~Task();
     int addSubTask(SubTask *newSubTask);

@@ -2,10 +2,39 @@
 #include <ctime>
 #include <unistd.h>
 
-//ATTENTION, if use this, DeadLine *dl should come from new.
-Task::Task(DeadLine *dl)
+// ATTENTION, if use this, DeadLine *dl and Description *des should come from new.
+Task::Task(DeadLine *dl, Description *des)
 {
-    ddl = dl;
+    if (dl == nullptr && des == nullptr)
+    {
+        Task();
+    }
+    else if (dl == nullptr || des == nullptr)
+    {
+        if (dl == nullptr)
+        {
+            ddl = new DeadLine();
+            description = des;
+        }
+        esle if (des == nullptr)
+        {
+            ddl = dl;
+            description == new Description();
+        }
+        allSubtasks = nullptr;
+        uint numSubtasks = 0;
+    }
+    else
+    {
+        ddl = dl;
+        description = des;
+        allSubtasks = nullptr;
+        uint numSubtasks = 0;
+    }
+}
+Task::Task(Description *des)
+{
+    descrip = des;
 }
 
 Task::Task()
@@ -22,11 +51,10 @@ Task::~Task()
     {
         delete ddl;
     }
-    if(description != nullptr)
+    if (description != nullptr)
     {
         delete description;
     }
-
 }
 
 int Task::addSubTask(SubTask *newSubTask)
