@@ -1,7 +1,7 @@
 #include "../include/Task.h"
 #include <ctime>
-#include<unistd.h>  
-Task::Task(DeadLine* dl)
+#include <unistd.h>
+Task::Task(DeadLine *dl)
 {
     ddl = dl;
 }
@@ -11,10 +11,14 @@ Task::Task()
     ddl = nullptr;
 }
 
-
 Task::~Task()
 {
-    delete ddl;
+    if (ddl != nullptr)
+    {
+        delete ddl;
+    }
+
+
 }
 
 int Task::addSubTask(SubTask *newSubTask)
@@ -30,4 +34,11 @@ void Task::editDdl(struct tm *newDdl)
 std::string Task::getDdl()
 {
     return ddl->getDdl();
+}
+void Task::editDescription(string newS)
+{
+}
+std::string Task::getDescription()
+{
+    return "hi";
 }

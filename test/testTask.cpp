@@ -33,6 +33,14 @@ TEST(TaskTests, testEditDdl)
     EXPECT_FALSE(strcmp(st1.c_str(), b->getDdl().c_str()) == 0);
 }
 
+TEST(TaskTests, testEditDescription)
+{
+    std::string s = "hello";
+    Task a = Task();
+    a.editDescription(s);
+    EXPECT_TRUE(s.compare(a.getDescription())==0);
+}
+
 int main(int argc, char **argv)
 {
     ::testing::InitGoogleTest(&argc, argv);
