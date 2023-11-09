@@ -1,7 +1,7 @@
 #ifndef DEADLINE_H
 #define DEADLINE_H
 
-#include<ctime>
+#include <ctime>
 #include <string>
 
 class DeadLine

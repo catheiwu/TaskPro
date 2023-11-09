@@ -4,21 +4,26 @@
 #include <string>
 #include <ctime>
 #include "SubTask.h"
+#include "DeadLine.h"
+
+using namespace std;
+
 class Task
 {
 private:
-    struct tm* ddl;
+    DeadLine* ddl;
     string description;
-    SubTask ** allSubtasks;
+    SubTask **allSubtasks;
     uint numSubtasks;
 
 public:
+    Task(DeadLine* dl);
     Task();
     ~Task();
-    void addSubTask(SubTask *newSubTask);
-    struct tm* getDdl();
+    int addSubTask(SubTask *newSubTask);
+    std::string getDdl();
+    void editDdl(struct tm *newDdl);
     string getDescription();
-    void editDdl(struct tm* newDdl);
     void editDescription(string newDescription);
 };
 

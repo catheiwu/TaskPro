@@ -15,7 +15,7 @@ DeadLine::~DeadLine()
 {
 }
 
-// we don't need to delete cause localtime() use stack
+// we don't need to delete cause localtime() uses stack
 void DeadLine::editDdl(struct tm *newTime)
 {
     // struct tm *temp = ddl;
