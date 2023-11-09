@@ -7,7 +7,7 @@
 class DeadLine
 {
 private:
-    struct tm* ddl;
+    struct tm* ddl; //store local time
 
 public:
     DeadLine();
