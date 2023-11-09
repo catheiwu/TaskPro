@@ -1,6 +1,8 @@
 #include "../include/Task.h"
 #include <ctime>
 #include <unistd.h>
+
+//ATTENTION, if use this, DeadLine *dl should come from new.
 Task::Task(DeadLine *dl)
 {
     ddl = dl;
@@ -8,7 +10,10 @@ Task::Task(DeadLine *dl)
 
 Task::Task()
 {
-    ddl = nullptr;
+    ddl = new DeadLine();
+    description = new Description();
+    allSubtasks = nullptr;
+    uint numSubtasks = 0;
 }
 
 Task::~Task()
@@ -17,7 +22,10 @@ Task::~Task()
     {
         delete ddl;
     }
-
+    if(description != nullptr)
+    {
+        delete description;
+    }
 
 }
 
@@ -35,10 +43,11 @@ std::string Task::getDdl()
 {
     return ddl->getDdl();
 }
-void Task::editDescription(string newS)
+void Task::editDescription(std::string newDescription)
 {
+    description->editDescription(newDescription);
 }
 std::string Task::getDescription()
 {
-    return "hi";
+    return description->getDescription();
 }

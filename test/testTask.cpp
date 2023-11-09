@@ -10,8 +10,8 @@ TEST(TaskTests, testGetDdl)
     time_t timep;
     time(&timep);
     std::string st = asctime(localtime(&timep));
-    DeadLine *a = new DeadLine(localtime(&timep));
-    Task *b = new Task(a);
+    Task *b = new Task();
+    b->editDdl(localtime(&timep));
     // std::cout<<st<<std::endl;
     EXPECT_TRUE(st.compare(b->getDdl()) == 0);
     EXPECT_TRUE(strcmp(st.c_str(), b->getDdl().c_str()) == 0);

@@ -5,6 +5,7 @@
 #include <ctime>
 #include "SubTask.h"
 #include "DeadLine.h"
+#include "Description.h"
 
 using namespace std;
 
@@ -12,7 +13,7 @@ class Task
 {
 private:
     DeadLine* ddl;
-    string description;
+    Description* description;
     SubTask **allSubtasks;
     uint numSubtasks;
 
@@ -24,7 +25,7 @@ public:
     std::string getDdl();
     void editDdl(struct tm *newDdl);
     std::string getDescription();
-    void editDescription(string newDescription);
+    void editDescription(std::string newDescription);
 };
 
 #endif
