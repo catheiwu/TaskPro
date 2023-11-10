@@ -69,14 +69,18 @@ int Task::addSubTask(SubTask *newSubTask)
         std::cerr << "error: NULL SubTask pointer" << std::endl;
         return -1;
     }
-    numSubtasks++;
-    if (allSubtasks != nullptr) // not first subtask
+    temp = new SubTask *[numSubtasks + 1];
+    for (int i = 0, i < numSubtasks, i++)
+    {
+        temp[i] = allSubtasks[i];
+    }
+    temp[numSubtasks] = newSubTask;
+    if (allSubtasks != nullptr) // not the first subtask
     {
         delete[] allSubtasks;
     }
-    allSubtasks = new SubTask *[numSubtasks];
-    allSubtasks[numSubtasks - 1] = newSubTask;
-
+    numSubtasks++;
+    allSubtasks = temp;
     return 0;
 }
 
@@ -104,7 +108,7 @@ int Task::deleteSubTask(int index)
         temp[i - 1] = allSubtasks[i];
     }
     delete allSubtasks[index];
-    delete [] allSubtasks;
+    delete[] allSubtasks;
     allSubtasks = temp;
     numSubtasks--;
     return 0;
