@@ -51,23 +51,62 @@ Task::~Task()
     {
         delete description;
     }
-    for(int i = 0, i<numSubtasks,i++)
+    for (int i = 0, i < numSubtasks, i++)
     {
         delete allSubtasks[i];
+    }
+    if (allSubtasks != nullptr)
+    {
+        delete[] allSubtasks;
     }
 }
 
 // SubTask *newSubTask must can be freed.
 int Task::addSubTask(SubTask *newSubTask)
 {
-    numSubtasks++;
-    if (allSubtasks!=nullptr)// not first subtask
+    if (newSubTask == nullptr) // how to throw an exception?
     {
-         delete [] allSubtasks;
+        std::cerr << "error: NULL SubTask pointer" << std::endl;
+        return -1;
     }
-    allSubtasks = new SubTask[numSubtasks];
-    SubTask[numSubtasks-1] = newSubTask;
-   
+    numSubtasks++;
+    if (allSubtasks != nullptr) // not first subtask
+    {
+        delete[] allSubtasks;
+    }
+    allSubtasks = new SubTask *[numSubtasks];
+    allSubtasks[numSubtasks - 1] = newSubTask;
+
+    return 0;
+}
+
+int Task::deleteSubTask(int index)
+{
+    if (numSubtasks == 0)
+    {
+        std::cerr << "error: no subtask to delete" << std::endl;
+        return -1;
+    }
+    if (index > numSubtasks - 1)
+    {
+        std::cerr << "error: invalid index" << std::endl;
+        return -1;
+    }
+
+    temp = new SubTask *[numSubtasks - 1]; // smaller array
+    //.what about [0]?
+    for (int i = 0, i < index, i++) // copy left
+    {
+        temp[i] = allSubtasks[i];
+    }
+    for (int i = index + 1, i < numSubtasks, i++) // copy right
+    {
+        temp[i - 1] = allSubtasks[i];
+    }
+    delete allSubtasks[index];
+    delete [] allSubtasks;
+    allSubtasks = temp;
+    numSubtasks--;
     return 0;
 }
 
