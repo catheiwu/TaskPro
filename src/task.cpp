@@ -51,8 +51,13 @@ Task::~Task()
     {
         delete description;
     }
+    for(int i = 0, i<numSubtasks,i++)
+    {
+        delete allSubtasks[i];
+    }
 }
 
+// SubTask *newSubTask must can be freed.
 int Task::addSubTask(SubTask *newSubTask)
 {
     numSubtasks++;
