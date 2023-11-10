@@ -22,6 +22,7 @@ public:
     Task();
     ~Task();
     int addSubTask(SubTask *newSubTask);
+    int deletSubTask()
     std::string getDdl();
     void editDdl(struct tm *newDdl);
     std::string getDescription();

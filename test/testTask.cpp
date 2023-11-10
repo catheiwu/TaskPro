@@ -23,7 +23,7 @@ TEST(TaskTests, testEditDdl)
     time(&timep);
     std::string st1 = asctime(localtime(&timep));
     DeadLine *a = new DeadLine(localtime(&timep));
-    Task *b = new Task(a);
+    Task *b = new Task(a,nullptr);
     sleep(2);
     time(&timep);
     std::string st2 = asctime(localtime(&timep));

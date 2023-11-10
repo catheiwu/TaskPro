@@ -8,6 +8,7 @@ Description::Description()
 
 Description::~Description()
 {
+    
 }
 std::string Description::getDescription()
 {

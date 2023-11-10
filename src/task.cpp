@@ -16,7 +16,7 @@ Task::Task(DeadLine *dl, Description *des)
             ddl = new DeadLine();
             description = des;
         }
-        esle if (des == nullptr)
+        else if (des == nullptr)
         {
             ddl = dl;
             description == new Description();
@@ -31,10 +31,6 @@ Task::Task(DeadLine *dl, Description *des)
         allSubtasks = nullptr;
         uint numSubtasks = 0;
     }
-}
-Task::Task(Description *des)
-{
-    descrip = des;
 }
 
 Task::Task()
@@ -59,6 +55,14 @@ Task::~Task()
 
 int Task::addSubTask(SubTask *newSubTask)
 {
+    numSubtasks++;
+    if (allSubtasks!=nullptr)// not first subtask
+    {
+         delete [] allSubtasks;
+    }
+    allSubtasks = new SubTask[numSubtasks];
+    SubTask[numSubtasks-1] = newSubTask;
+   
     return 0;
 }
 

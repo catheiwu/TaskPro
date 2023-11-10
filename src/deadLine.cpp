@@ -25,5 +25,5 @@ void DeadLine::editDdl(struct tm *newTime)
 
 std::string DeadLine::getDdl()
 {
-    return (asctime(ddl));
+    return asctime(ddl);
 }
