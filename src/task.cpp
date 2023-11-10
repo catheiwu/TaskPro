@@ -1,6 +1,7 @@
 #include "../include/Task.h"
 #include <ctime>
 #include <unistd.h>
+#include <iostream>
 
 // ATTENTION, if use this, DeadLine *dl and Description *des should come from new.
 Task::Task(DeadLine *dl, Description *des)
@@ -51,7 +52,7 @@ Task::~Task()
     {
         delete description;
     }
-    for (int i = 0, i < numSubtasks, i++)
+    for (int i = 0; i < numSubtasks; i++)
     {
         delete allSubtasks[i];
     }
@@ -69,8 +70,8 @@ int Task::addSubTask(SubTask *newSubTask)
         std::cerr << "error: NULL SubTask pointer" << std::endl;
         return -1;
     }
-    temp = new SubTask *[numSubtasks + 1];
-    for (int i = 0, i < numSubtasks, i++)
+    SubTask **temp = new SubTask *[numSubtasks + 1];//bigger array
+    for (int i = 0; i < numSubtasks;i++)
     {
         temp[i] = allSubtasks[i];
     }
@@ -97,13 +98,13 @@ int Task::deleteSubTask(int index)
         return -1;
     }
 
-    temp = new SubTask *[numSubtasks - 1]; // smaller array
+    SubTask **temp = new SubTask *[numSubtasks - 1]; // smaller array
     //.what about [0]?
-    for (int i = 0, i < index, i++) // copy left
+    for (int i = 0; i < index; i++) // copy left
     {
         temp[i] = allSubtasks[i];
     }
-    for (int i = index + 1, i < numSubtasks, i++) // copy right
+    for (int i = index + 1; i < numSubtasks; i++) // copy right
     {
         temp[i - 1] = allSubtasks[i];
     }
