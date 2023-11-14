@@ -92,7 +92,7 @@ int Task::deleteSubTask(int index)
         std::cerr << "error: no subtask to delete" << std::endl;
         return -1;
     }
-    if (index > numSubtasks - 1)
+    if (index >= numSubtasks - 1)
     {
         std::cerr << "error: invalid index" << std::endl;
         return -1;
