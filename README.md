@@ -6,13 +6,13 @@
  >          [Xiaopei Wang](http://gitHub.com/seanxpw)
 
 ## Project Description
- > * As a university student or student in general, it is extremely important to schedule your upcoming assignments and events well, as it can be stressful when not planned properly. Having a tool that organizes your tasks cleanly minimizes stress levels and allows students to appropriately focus on what's ahead of them.
+  * As a university student or student in general, it is extremely important to schedule your upcoming assignments and events well, as it can be stressful when not planned properly. Having a tool that organizes your tasks cleanly minimizes stress levels and allows students to appropriately focus on what's ahead of them.
 
- > * We plan to entirely code this project in C++. We will use VSCode to code, and GitHub to collaborate with our team and keep track of what each person is doing. 
- > * The user of our tool will input a list of tasks that they want to keep track of. The output will be their lists of tasks they have to do and the date they have to complete them. 
- > * In this application, users can create separate lists with different subtasks in them. For example, a user can create a task list to study for an upcoming midterm and have the subtasks be to complete study guide, review lecture notes, and review past assignments. Additionally, the tasks are labeled with the date they were created, and a date to complete them by. 
- > * Implement features where users can easily delete and add their custom tasks
- > * Implement a sort feature by highest priority (closest due date)
+  * We plan to entirely code this project in C++. We will use VSCode to code, and GitHub to collaborate with our team and keep track of what each person is doing. 
+  * The user of our tool will input a list of tasks that they want to keep track of. The output will be their lists of tasks they have to do and the date they have to complete them. 
+  * In this application, users can create separate lists with different subtasks in them. For example, a user can create a task list to study for an upcoming midterm and have the subtasks be to complete study guide, review lecture notes, and review past assignments. Additionally, the tasks are labeled with the date they were created, and a date to complete them by. 
+  * Implement features where users can easily delete and add their custom tasks
+  * Implement a sort feature by highest priority (closest due date)
  
  ## Phase II
 <!-- 
