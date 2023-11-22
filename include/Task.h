@@ -14,7 +14,7 @@ class Task
 private:
     Deadline* ddl;
     Description* description;
-    Subask **allSubtasks;
+    Subtask **allSubtasks;
     uint numSubtasks;
 
 public:
