@@ -4,15 +4,15 @@
 #include <ctime>
 #include <string>
 
-class deadLine
+class Deadline
 {
 private:
     struct tm* ddl; //store local time
 
 public:
-    deadLine();
-    deadLine(struct tm*);
-    ~deadLine();
+    Deadline();
+    Deadline(struct tm*);
+    ~Deadline();
     std::string getDdl();
     void editDdl(struct tm* newTime);
 };
