@@ -1,29 +1,29 @@
-#include "../include/DeadLine.h"
+#include "../include/Deadline.h"
 #include <ctime>
 
-deadLine::deadLine()
+Deadline::Deadline()
 {
     ddl = nullptr;
 }
 
 //use localtime() to get the correct value.
-deadLine::deadLine(struct tm *ddlTime)
+Deadline::Deadline(struct tm *ddlTime)
 {
     ddl = ddlTime;
 }
-deadLine::~deadLine()
+Deadline::~Deadline()
 {
 }
 
 // we don't need to delete cause localtime() uses stack
-void DeadLine::editDdl(struct tm *newTime)
+void Deadline::editDdl(struct tm *newTime)
 {
     // struct tm *temp = ddl;
     // delete temp;
     ddl = newTime;
 }
 
-std::string deadLine::getDdl()
+std::string Deadline::getDdl()
 {
     return asctime(ddl);
 }
