@@ -1,17 +1,17 @@
 #include "../include/DeadLine.h"
 #include <ctime>
 
-DeadLine::DeadLine()
+deadLine::deadLine()
 {
     ddl = nullptr;
 }
 
 //use localtime() to get the correct value.
-DeadLine::DeadLine(struct tm *ddlTime)
+deadLine::deadLine(struct tm *ddlTime)
 {
     ddl = ddlTime;
 }
-DeadLine::~DeadLine()
+deadLine::~deadLine()
 {
 }
 
@@ -23,7 +23,7 @@ void DeadLine::editDdl(struct tm *newTime)
     ddl = newTime;
 }
 
-std::string DeadLine::getDdl()
+std::string deadLine::getDdl()
 {
     return asctime(ddl);
 }
