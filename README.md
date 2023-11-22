@@ -30,7 +30,9 @@
  ![image](https://github.com/cs100/final-project-fmoha020-cwu247-bjian018-xwang571/assets/146904259/810adb7f-0b0d-46e6-b2fd-ff0111ae1f4c)
 
 >## Class Diagram
-<img src="https://cdn.discordapp.com/attachments/1164068636370153513/1173896911074381884/Screen_Shot_2023-11-14_at_12.07.02_AM.png?ex=65659fb1&is=65532ab1&hm=d98c56f33b90da19f528df111cb2c2411e2af2775bf3ddde4f08e543ca20dc51&" alt="class" width="600" title="class diagram">
+<img src="https://github.com/cs100/final-project-fmoha020-cwu247-bjian018-xwang571/assets/146904259/971720cb-5b25-49af-b7c7-392d07f8a06c&" alt="class" width="600" title="class diagram">
+
+
 
 <!--### Screen Layouts
 > Include the layout of each of your screens. The layout should describe the screen’s major components such as menus and prompts for user inputs, expected output, and buttons (if applicable). Explain what is on the layout, and the purpose of each menu item, button, etc. If many screens share the same layout, start by describing the general layout and then list the screens that will be using that layout and the differences between each of them.
@@ -39,25 +41,7 @@
  > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
  -->
  > ## Phase III
- > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on Zoom and should be conducted by Wednesday of week 8.
- 
- > BEFORE the meeting you should do the following:
- > * Update your class diagram from Phase II to include any feedback you received from your TA/grader.
- > * Considering the SOLID design principles, reflect back on your class diagram and think about how you can use the SOLID principles to improve your design. You should then update the README.md file by adding the following:
- >   * A new class diagram incorporating your changes after considering the SOLID principles.
- >   * For each update in your class diagram, you must explain in 3-4 sentences:
- >     * What SOLID principle(s) did you apply?
- >     * How did you apply it? i.e. describe the change.
- >     * How did this change help you write better code?
- > * Perform a new sprint plan like you did in Phase II.
- > * You should also make sure that your README file (and Project board) are up-to-date reflecting the current status of your project and the most recent class diagram. Previous versions of the README file should still be visible through your commit history.
- 
-> During the meeting with your reader you will discuss: 
- > * How effective your last sprint was (each member should talk about what they did)
- > * Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
- > * Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
- > * What tasks you are planning for this next sprint.
-
+For the Deadline, Description, and Priority classes we followed the single responsibility principle by having each class only implement one feature. For example, the Deadline class only implements the "deadline" feature and the Priority class only implements the "priority" feature. Furthermore, to ensure that each class only has one responsibility, we created a Subtask class to separate the responsibilities of modifying tasks and subtasks. Both task and subtask classes will directly use the Deadline, Description, and Priority features classes. Originally, we had an object of type Taskist * taskList in the MainMenu class, but we moved it to the Tasklist class since it violated the interface segregation principle. Since the main menu did not have to use taskList, we moved it to the TaskList class to make sure we were complying with this guideline.
  
  > ## Final deliverable
  > All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
