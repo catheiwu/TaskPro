@@ -4,7 +4,7 @@
 #include <iostream>
 
 // ATTENTION, if use this, DeadLine *dl and Description *des should come from new.
-Task::Task(DeadLine *dl, Description *des)
+Task::Task(Deadline *dl, Description *des)
 {
     if (dl == nullptr && des == nullptr)
     {
