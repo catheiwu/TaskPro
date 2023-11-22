@@ -3,14 +3,14 @@
 
 #include <string>
 
-class Description
+class description
 {
 private:
     std::string descrip;
 public:
 
-    Description();
-    ~Description();
+    description();
+    ~description();
     std::string getDescription();
     void editDescription(std::string newDescription);
 };
