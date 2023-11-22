@@ -1,9 +1,9 @@
  # TaskPro
  
- > Authors: [Faris Mohammady](https://github.com/faris-mohammady),
- >          [Banff Jiang](http://github.com/banffjiang),
- >          [Cathy Wu](http://github.com/catheiwu),
- >          [Xiaopei Wang](http://gitHub.com/seanxpw)
+ Authors: [Faris Mohammady](https://github.com/faris-mohammady),
+           [Banff Jiang](http://github.com/banffjiang),
+           [Cathy Wu](http://github.com/catheiwu),
+           [Xiaopei Wang](http://gitHub.com/seanxpw)
 
 ## Project Description
    As a university student or student in general, it is extremely important to schedule your upcoming assignments and events well, as it can be stressful when not planned properly. Having a tool that organizes your tasks cleanly minimizes stress levels and allows students to appropriately focus on what's ahead of them.
@@ -14,7 +14,7 @@
    Implement features where users can easily delete and add their custom tasks
    Implement a sort feature by highest priority (closest due date)
  
- ## Phase II
+Phase II
 <!-- 
  > * Create an "Epic" (note) for each feature. Place these epics in the `Product Backlog` column
  > * Complete your first *sprint planning* meeting to plan out the next 7 days of work.
@@ -25,7 +25,7 @@
  >   * The second check-in should be scheduled with a reader. During that meeting you will discuss:
  >     * The tasks you are planning for the first sprint
  >     * How work will be divided between the team members -->
->## User Interface Specification
+User Interface Specification
 
  ![image](https://github.com/cs100/final-project-fmoha020-cwu247-bjian018-xwang571/assets/146904259/810adb7f-0b0d-46e6-b2fd-ff0111ae1f4c)
 
@@ -41,7 +41,7 @@
 ## Class Diagram
  > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
  -->
- > ## Phase III
+Phase III
 For the Deadline, Description, and Priority classes we followed the single responsibility principle by having each class only implement one feature. For example, the Deadline class only implements the "deadline" feature and the Priority class only implements the "priority" feature. Furthermore, to ensure that each class only has one responsibility, we created a Subtask class to separate the responsibilities of modifying tasks and subtasks. Both task and subtask classes will directly use the Deadline, Description, and Priority features classes. Originally, we had an object of type Taskist * taskList in the MainMenu class, but we moved it to the Tasklist class since it violated the interface segregation principle. Since the main menu did not have to use taskList, we moved it to the TaskList class to make sure we were complying with this guideline.
  
  > ## Final deliverable
