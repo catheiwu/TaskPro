@@ -3,8 +3,8 @@
 
 #include <string>
 #include <ctime>
-#include "SubTask.h"
-#include "DeadLine.h"
+#include "Subtask.h"
+#include "Deadline.h"
 #include "Description.h"
 
 using namespace std;
@@ -12,17 +12,17 @@ using namespace std;
 class Task
 {
 private:
-    DeadLine* ddl;
+    Deadline* ddl;
     Description* description;
-    SubTask **allSubtasks;
+    Subask **allSubtasks;
     uint numSubtasks;
 
 public:
-    Task(DeadLine* dl,Description* des);
+    Task(Deadline* dl,Description* des);
     Task();
     ~Task();
-    int addSubTask(SubTask *newSubTask);
-    int deleteSubTask(int index);
+    int addSubtask(Subtask *newSubtask);
+    int deleteSubtask(int index);
     std::string getDdl();
     void editDdl(struct tm *newDdl);
     std::string getDescription();
