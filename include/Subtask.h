@@ -2,13 +2,13 @@
 #define SUBTASK_H
 
 
-class SubTask
+class Subtask
 {
 private:
     /* data */
 public:
-    SubTask(/* args */);
-    ~SubTask();
+    Subtask(/* args */);
+    ~Subtask();
 };
 
 #endif
