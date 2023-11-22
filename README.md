@@ -14,7 +14,7 @@
    Implement features where users can easily delete and add their custom tasks
    Implement a sort feature by highest priority (closest due date)
  
-Phase II
+## Phase II
 <!-- 
  > * Create an "Epic" (note) for each feature. Place these epics in the `Product Backlog` column
  > * Complete your first *sprint planning* meeting to plan out the next 7 days of work.
@@ -25,7 +25,7 @@ Phase II
  >   * The second check-in should be scheduled with a reader. During that meeting you will discuss:
  >     * The tasks you are planning for the first sprint
  >     * How work will be divided between the team members -->
-User Interface Specification
+## User Interface Specification
 
  ![image](https://github.com/cs100/final-project-fmoha020-cwu247-bjian018-xwang571/assets/146904259/810adb7f-0b0d-46e6-b2fd-ff0111ae1f4c)
 
