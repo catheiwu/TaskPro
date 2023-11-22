@@ -14,7 +14,7 @@ Task::Task(DeadLine *dl, Description *des)
     {
         if (dl == nullptr)
         {
-            ddl = new DeadLine();
+            ddl = new Deadline();
             description = des;
         }
         else if (des == nullptr)
@@ -36,7 +36,7 @@ Task::Task(DeadLine *dl, Description *des)
 
 Task::Task()
 {
-    ddl = new DeadLine();
+    ddl = new Deadline();
     description = new Description();
     allSubtasks = nullptr;
     uint numSubtasks = 0;
@@ -62,20 +62,20 @@ Task::~Task()
     }
 }
 
-// SubTask *newSubTask must can be freed.
-int Task::addSubTask(SubTask *newSubTask)
+// Subtask *newSubtask must can be freed.
+int Task::addSubtask(Subtask *newSubtask)
 {
-    if (newSubTask == nullptr) // how to throw an exception?
+    if (newSubtask == nullptr) // how to throw an exception?
     {
-        std::cerr << "error: NULL SubTask pointer" << std::endl;
+        std::cerr << "error: NULL Subtask pointer" << std::endl;
         return -1;
     }
-    SubTask **temp = new SubTask *[numSubtasks + 1];//bigger array
+    Subtask **temp = new Subtask *[numSubtasks + 1];//bigger array
     for (int i = 0; i < numSubtasks;i++)
     {
         temp[i] = allSubtasks[i];
     }
-    temp[numSubtasks] = newSubTask;
+    temp[numSubtasks] = newSubtask;
     if (allSubtasks != nullptr) // not the first subtask
     {
         delete[] allSubtasks;
@@ -85,7 +85,7 @@ int Task::addSubTask(SubTask *newSubTask)
     return 0;
 }
 
-int Task::deleteSubTask(int index)
+int Task::deleteSubtask(int index)
 {
     if (numSubtasks == 0)
     {
@@ -98,7 +98,7 @@ int Task::deleteSubTask(int index)
         return -1;
     }
 
-    SubTask **temp = new SubTask *[numSubtasks - 1]; // smaller array
+    Subtask **temp = new Subtask *[numSubtasks - 1]; // smaller array
     //.what about [0]?
     for (int i = 0; i < index; i++) // copy left
     {
