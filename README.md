@@ -41,7 +41,7 @@
 ## Class Diagram
  > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
  -->
-Phase III
+## Phase III
 For the Deadline, Description, and Priority classes we followed the single responsibility principle by having each class only implement one feature. For example, the Deadline class only implements the "deadline" feature and the Priority class only implements the "priority" feature. Furthermore, to ensure that each class only has one responsibility, we created a Subtask class to separate the responsibilities of modifying tasks and subtasks. Both task and subtask classes will directly use the Deadline, Description, and Priority features classes. Originally, we had an object of type Taskist * taskList in the MainMenu class, but we moved it to the Tasklist class since it violated the interface segregation principle. Since the main menu did not have to use taskList, we moved it to the TaskList class to make sure we were complying with this guideline.
  
  > ## Final deliverable
