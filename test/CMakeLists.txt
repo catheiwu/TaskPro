@@ -10,6 +10,9 @@ add_executable(taskTests
 add_executable(MaintaskTests
   testMainTask.cpp 
 )
+add_executable(MaintaskTests
+  testTaskList.cpp 
+)
 
 target_link_libraries(taskTests ${GTEST_ESSENTIALS})
 target_link_libraries(taskTests taskLibrary)
