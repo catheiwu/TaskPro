@@ -29,12 +29,26 @@ TEST(MainTaskTests, testaddSubtask)
     EXPECT_TRUE(length == 3);
 }
 
-// TEST(MainTaskTests editDdl)
-// {
-//     MainTask task = MainTask();
-//     task.editDdl();
-
-// }
+TEST(MainTaskTests testEditDdl)
+{
+    MainTask task = MainTask();
+    time_t = timep;
+    time(&timep);
+    // std::string st1 = asctime(localtime(&timep));
+    task.editDdl(localtime(&timep));
+    sleep(2);
+    time(&timep);
+    // std::string st2 = asctime(localtime(&timep));
+     task.editDdl(localtime(&timep));
+    EXPECT_TRUE(task.getDdl()==timep);
+}
+TEST(MainTaskTests, testEditRecurringEventTime)
+{
+    MainTask task;
+    int newRecurringEventTime = 42;  
+    task.editRecurringEventTime(newRecurringEventTime);  
+    EXPECT_EQ(newRecurringEventTime, task.getRecurringEventTime());  
+}
 
 int main(int argc, char **argv)
 {

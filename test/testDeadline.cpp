@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "DeadLine.h"
+#include "../include/Deadline.h"
 #include <time.h>
 #include <iostream>
 #include <string.h>
