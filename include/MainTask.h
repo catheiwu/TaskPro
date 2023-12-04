@@ -10,17 +10,20 @@ private:
     struct tm* ddl;
     vector<SubTask*> allSubtasks;
     uint recurringEventTime;
+    bool ddlPassed; // update every time user looks at it
     
 public:
-    MainTask(/* args */);
+    MainTask();
     ~MainTask();
     bool isRecurring();
+    bool isDdlPassed();
     int addSubtask(SubTask*);
-    std::string getDdl();
+    time_t getDdl();
     uint getRecurringEventTime();
     void editDdl(struct tm* newDdl);
     void editRecurringEventTime(int newRecurringEventTime);
     vector<SubTask*> getAllSubtasks();
+    void editDdlPassed();
     int deleteSubtask(int index): 
 };
 
