@@ -2,7 +2,7 @@
 #define TASKLIST_H
 
 #include <string>
-#include "Task.h"
+#include "include/Task.h"
 
 using namespace std;
 
@@ -14,7 +14,10 @@ class TaskList
         
 
     public:
+
         TaskList* taskList;
+        TaskList();
+        ~TaskList();
         void sort();
         void addTask();
         void display();
