@@ -17,7 +17,7 @@ TEST(TaskTests, testEditDescription)
 TEST(TaskTests, testgetDescription)
 {
     std::string s = "hi";
-    Task a = Task(s,"jj",0);
+    Task a = Task("asd",s,0);
     EXPECT_TRUE(s.compare(a.getDescription())==0);
 }
 
