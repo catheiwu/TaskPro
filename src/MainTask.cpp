@@ -153,4 +153,5 @@ int MainTask::sort() { // by priority
                 }
             }
         }
+        return 0;
 }

@@ -97,6 +97,7 @@ int TaskList::deleteTask(int taskIndex)
     delete allTasks[taskIndex - 1];
     allTasks.erase(allTasks.begin() + taskIndex - 1);
     // cout << "Task deleted successfully!" << endl;
+    return 0;
 }
 
 // updateDdl when the program started and update very hour.
