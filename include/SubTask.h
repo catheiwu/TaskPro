@@ -10,8 +10,8 @@ private:
 
 public:
 
-    SubTask(/* args */);
-    ~SubTask();
+    Subtask(/* args */);
+    ~Subtask();
 };
 
 #endif
