@@ -4,9 +4,6 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/lib")
 set(GTEST_ESSENTIALS "gmock" "gtest" "gtest_main")
 add_subdirectory(googletest)
 
-add_executable(deadLineTests
-  testDeadLine.cpp 
-)
 add_executable(taskTests
   testTask.cpp 
 )

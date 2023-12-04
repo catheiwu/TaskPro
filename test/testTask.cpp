@@ -4,33 +4,7 @@
 #include <iostream>
 #include <string.h>
 #include <unistd.h>  
-TEST(TaskTests, testGetDdl)
-{
-    time_t timep;
-    time(&timep);
-    std::string st = asctime(localtime(&timep));
-    Task *b = new Task();
-    b->editDdl(localtime(&timep));
-    // std::cout<<st<<std::endl;
-    EXPECT_TRUE(st.compare(b->getDdl()) == 0);
-    EXPECT_TRUE(strcmp(st.c_str(), b->getDdl().c_str()) == 0);
-}
-
-TEST(TaskTests, testEditDdl)
-{
-    time_t timep;
-    time(&timep);
-    std::string st1 = asctime(localtime(&timep));
-    DeadLine *a = new DeadLine(localtime(&timep));
-    Task *b = new Task(a,nullptr);
-    sleep(2);
-    time(&timep);
-    std::string st2 = asctime(localtime(&timep));
-    b->editDdl(localtime(&timep));
-    EXPECT_FALSE(st1.compare(st2)==0);
-    EXPECT_TRUE(st2.compare(b->getDdl()) == 0);
-    EXPECT_FALSE(strcmp(st1.c_str(), b->getDdl().c_str()) == 0);
-}
+using namespace std;
 
 TEST(TaskTests, testEditDescription)
 {
@@ -38,6 +12,41 @@ TEST(TaskTests, testEditDescription)
     Task a = Task();
     a.editDescription(s);
     EXPECT_TRUE(s.compare(a.getDescription())==0);
+}
+
+TEST(TaskTests, testgetDescription)
+{
+    std::string s = "hi";
+    Task a = Task(s,"jj",0);
+    EXPECT_TRUE(s.compare(a.getDescription())==0);
+}
+
+TEST(TaskTests, testgetPriority)
+{
+    uint p = 2;
+    Task a = Task("s","jj",p);
+    EXPECT_EQ(a.getPriority,p);
+}
+
+TEST(TaskTests, testeditPriority)
+{
+    uint p = 2;
+    Task a = Task("s","jj",p);
+    a.editPriority(6);
+    EXPECT_EQ(a.getPriority,6);
+}
+TEST(TaskTests, testgetName)
+{
+    std::string s = "s";
+    Task a = Task("s","jj",p);
+    EXPECT_TRUE(s.compare(a.getName())==0);
+}
+TEST(TaskTests, testEditName)
+{
+    std::string s = "jj";
+    Task a = Task("sasd","jjasd",p);
+    a.editName(s);
+    EXPECT_TRUE(s.compare(a.getName())==0);
 }
 
 int main(int argc, char **argv)
