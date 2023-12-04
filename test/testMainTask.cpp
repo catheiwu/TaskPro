@@ -7,7 +7,7 @@
 #include "../include/MainTask.h"
 TEST(MainTaskTests, testisRecurringTrue)
 {
-    MainTask newTask = MainTask();
+    MainTask newTask = MainTask(nullptr,0,false,"hi","des",0);
     newTask.editRecurringEventTime(1);
     EXPECT_TRUE(newTask.isRecurring());
  

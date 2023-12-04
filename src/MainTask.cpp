@@ -22,7 +22,13 @@ MainTask::MainTask(struct tm* Ddl, uint RecurringEventTime, bool DdlPassed) {
     ddlPassed = DdlPassed;
     
 }
+MainTask::MainTask(struct tm* Ddl, uint RecurringEventTime, bool DdlPassed,std::string Name, std::string Description, uint Priority):Task(Name, Description,Priority){
 
+    ddl = Ddl;
+    recurringEventTime = RecurringEventTime;
+    ddlPassed = DdlPassed;
+    
+}
 
 
 
