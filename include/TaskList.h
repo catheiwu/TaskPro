@@ -2,7 +2,7 @@
 #define TASKLIST_H
 
 #include <string>
-#include "include/Task.h"
+#include "Task.h"
 
 using namespace std;
 
@@ -20,7 +20,6 @@ class TaskList
         ~TaskList();
         void sort();
         void addTask();
-        void display();
         void deleteTask();
         int updateDdl();
 
