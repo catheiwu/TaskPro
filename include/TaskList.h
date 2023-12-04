@@ -18,9 +18,9 @@ class TaskList
         TaskList* taskList;
         TaskList();
         ~TaskList();
-        void sort();
+        int sort(int userChoice);
         void addTask();
-        void deleteTask();
+        int deleteTask(int taskIndex);
         int updateDdl();
 
 
