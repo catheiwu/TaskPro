@@ -9,8 +9,10 @@ class MainTask::Task
 private:
     struct tm* ddl;
     vector<SubTask*> allSubtasks;
-    uint recurringEventTime;
+    uint recurringEventTime; // Days
     bool ddlPassed; // update every time user looks at it
+
+    
     
 public:
     MainTask();
@@ -23,7 +25,7 @@ public:
     void editDdl(struct tm* newDdl);
     void editRecurringEventTime(int newRecurringEventTime);
     vector<SubTask*> getAllSubtasks();
-    void editDdlPassed();
-    int deleteSubtask(int index): 
+    void editDdlPassed(bool passed);
+    int deleteSubtask(int index);
 };
 

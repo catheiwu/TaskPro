@@ -2,6 +2,7 @@
 #define TASKLIST_H
 
 #include <string>
+#include <ctime>
 #include "Task.h"
 #include "MainTask.h"
 
@@ -11,9 +12,7 @@ class TaskList
 {
     private:
         vector<MainTask*> allTasks;
-        
-        
-
+        struct tm* _addRecurring(time_t oldDeadLine, uint recurringTime);
     public:
 
         TaskList* taskList;
