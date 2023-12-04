@@ -20,6 +20,8 @@ private:
 public:
     MainTask();
     MainTask(struct tm* Ddl, uint RecurringEventTime, bool DdlPassed);
+    MainTask(struct tm* Ddl, uint RecurringEventTime, bool DdlPassed,std::string Name, std::string Description, uint Priority);
+
     ~MainTask();
     bool isRecurring();
     bool isDdlPassed();
