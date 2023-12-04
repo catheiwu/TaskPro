@@ -6,18 +6,21 @@
 
 using namespace std;
 
-class TaskLlist
+class TaskList
 {
     private:
-        Task[] allTasks;
-        int length;
-        void sort();
+        vector<Task*> allTasks;
+        
+        
 
     public:
         TaskList* taskList;
+        void sort();
         void addTask();
         void display();
         void deleteTask();
+        int updateDdl();
+
 
 };
 
