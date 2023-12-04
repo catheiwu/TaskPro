@@ -10,7 +10,7 @@ add_executable(taskTests
 add_executable(MaintaskTests
   testMainTask.cpp 
 )
-add_executable(MaintaskTests
+add_executable(TaskListTests
   testTaskList.cpp 
 )
 
@@ -18,5 +18,7 @@ target_link_libraries(taskTests ${GTEST_ESSENTIALS})
 target_link_libraries(taskTests taskLibrary)
 target_link_libraries(MaintaskTests ${GTEST_ESSENTIALS})
 target_link_libraries(MaintaskTests taskLibrary)
+target_link_libraries(TaskListTests ${GTEST_ESSENTIALS})
+target_link_libraries(TaskListTests taskLibrary)
 # Don't run cmake in the test folder.
 

@@ -37,7 +37,7 @@ int TaskList::sort(int userChoice)
             {
                 if (allTasks[j]->getPriority() > allTasks[j + 1]->getPriority())
                 {
-                    int temp = allTasks[j];
+                    MainTask* temp = allTasks[j];
                     allTasks[j] = allTasks[j + 1];
                     allTasks[j + 1] = temp;
                 }
@@ -53,7 +53,7 @@ int TaskList::sort(int userChoice)
             {
                 if (allTasks[j]->getDdl() > allTasks[j + 1]->getDdl())
                 {
-                    int temp = allTasks[j];
+                    MainTask* temp = allTasks[j];
                     allTasks[j] = allTasks[j + 1];
                     allTasks[j + 1] = temp;
                 }
@@ -70,7 +70,7 @@ int TaskList::sort(int userChoice)
 int TaskList::addTask()
 {
 
-    Task *newTask = new MainTask();
+    MainTask *newTask = new MainTask();
     allTasks.push_back(newTask);
 
     return 0;
@@ -161,4 +161,9 @@ struct tm *TaskList::_addRecurring(time_t oldDeadLine, uint recurringDay)
     oldDeadLine += ONE_DAY * recurringDay;
     struct tm *newDdl = localtime(&oldDeadLine);
     return newDdl;
+}
+
+vector<MainTask*> TaskList::getAllTasks()
+{
+    return this->allTasks;
 }

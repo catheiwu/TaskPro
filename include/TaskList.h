@@ -18,6 +18,7 @@ class TaskList
         TaskList* taskList;
         TaskList();
         ~TaskList();
+        vector<MainTask*> getAllTasks();
         int sort(int userChoice);
         int addTask();
         int addTask(MainTask* newTask);

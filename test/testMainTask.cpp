@@ -8,31 +8,31 @@
 TEST(MainTaskTests, testisRecurringTrue)
 {
     MainTask newTask = MainTask();
-    newTask.editRecurringEventTime = 1;
-    EXPECT_TRUE(isRecurring);
+    newTask.editRecurringEventTime(1);
+    EXPECT_TRUE(newTask.isRecurring());
  
 }
 TEST(MainTaskTests, testisRecurringFalse)
 {
     MainTask newTask = MainTask();
-    newTask.editRecurringEventTime = 0;
-    EXPECT_TRUE(isRecurring);
+    newTask.editRecurringEventTime(0);
+    EXPECT_TRUE(newTask.isRecurring());
 }
 TEST(MainTaskTests, testaddSubtask)
 {
-    Subtask newTask = Subtask();
+    SubTask* newTask = new SubTask();
     MainTask task = MainTask();
-    int length = task.getAllSubtasks.size();
+    int length = task.getAllSubtasks().size();
     task.addSubtask(newTask);
     task.addSubtask(newTask);
     task.addSubtask(newTask);
     EXPECT_TRUE(length == 3);
 }
 
-TEST(MainTaskTests testEditDdl)
+TEST(MainTaskTests ,testEditDdl)
 {
     MainTask task = MainTask();
-    time_t = timep;
+    time_t timep;
     time(&timep);
     // std::string st1 = asctime(localtime(&timep));
     task.editDdl(localtime(&timep));

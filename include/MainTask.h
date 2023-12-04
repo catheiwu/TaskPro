@@ -1,10 +1,13 @@
+#ifndef MAINTASK_H
+#define MAINTASK_H
+
 #include "Task.h"
 #include "SubTask.h"
 #include <ctime>
 #include <vector>
 
 
-class MainTask::Task
+class MainTask: public Task
 {
 private:
     struct tm* ddl;
@@ -28,4 +31,4 @@ public:
     void editDdlPassed(bool passed);
     int deleteSubtask(int index);
 };
-
+#endif

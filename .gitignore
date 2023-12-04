@@ -3,3 +3,4 @@
 !/build/buildHere.txt
 *.out
 /src/main.cpp
+CMakeCache.txt

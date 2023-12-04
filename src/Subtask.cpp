@@ -9,7 +9,4 @@ SubTask::~SubTask()
 {
     
 }
-SubTask::~SubTask()
-{
-    
-}
+
