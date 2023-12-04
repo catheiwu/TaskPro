@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 //#include "../include/TaskList.h"
+#include "helperFunctions.h"
 
 using namespace std;
 void PrintMainMenu()
