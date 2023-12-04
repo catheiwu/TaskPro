@@ -22,7 +22,7 @@ public:
     uint getPriority();
     void editName(string newName);
     void editDescription(string newDescription);
-    void editPriority(uint newPriority);
+    void editPriority( uint newPriority);
 };
 
 #endif
