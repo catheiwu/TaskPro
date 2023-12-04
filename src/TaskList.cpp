@@ -60,18 +60,16 @@ int TaskList::sort(int userChoice){
 
 }
 
-void TaskList::addTask() {
+int TaskList::addTask() {
 
-    string taskName;
-    
-
-    Task* newTask = new Task(taskName);
+    Task* newTask = new Task();
     allTasks.push_back(newTask);
 
-    cout << "Task added successfully!" << endl;
+    return 0;
+
 }
 
-void TaskList::addTask(MainTask* newTask) {
+int TaskList::addTask(MainTask* newTask) {
 
     string taskName = newTask->getName();
     
@@ -79,7 +77,8 @@ void TaskList::addTask(MainTask* newTask) {
     Task* taskToAdd = new Task(taskName);
     allTasks.push_back(newTask);
 
-    cout << "Task added successfully!" << endl;
+    return 0;
+
 }
 
 
@@ -87,7 +86,7 @@ int TaskList::deleteTask(int taskIndex){
 
     if (taskIndex < 1 || taskIndex > allTasks.size()) {
 
-        cout << "Invalid task index. Please enter a valid index." << endl;
+        // cout << "Invalid task index. Please enter a valid index." << endl;
 
         return -1;
     }
@@ -96,7 +95,7 @@ int TaskList::deleteTask(int taskIndex){
     delete allTasks[taskIndex - 1];
     allTasks.erase(allTasks.begin() + taskIndex - 1);
 
-    cout << "Task deleted successfully!" << endl;
+    // cout << "Task deleted successfully!" << endl;
 }
 
 

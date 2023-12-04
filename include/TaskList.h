@@ -3,13 +3,14 @@
 
 #include <string>
 #include "Task.h"
+#include "MainTask.h"
 
 using namespace std;
 
 class TaskList
 {
     private:
-        vector<Task*> allTasks;
+        vector<MainTask*> allTasks;
         
         
 
@@ -19,7 +20,8 @@ class TaskList
         TaskList();
         ~TaskList();
         int sort(int userChoice);
-        void addTask();
+        int addTask();
+        int addTask(MainTask* newTask);
         int deleteTask(int taskIndex);
         int updateDdl();
 
