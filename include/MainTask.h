@@ -30,5 +30,6 @@ public:
     vector<SubTask*> getAllSubtasks();
     void editDdlPassed(bool passed);
     int deleteSubtask(int index);
+    int sort(); //only by priority
 };
 #endif
