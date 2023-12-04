@@ -2,4 +2,3 @@
 /build/*
 !/build/buildHere.txt
 *.out
-/src/main.cpp
