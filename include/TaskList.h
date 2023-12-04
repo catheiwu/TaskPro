@@ -12,7 +12,7 @@ class TaskList
 {
     private:
         vector<MainTask*> allTasks;
-        struct tm* _addRecurring(time_t oldDeadLine, uint recurringTime);
+        struct tm* _addRecurring(time_t oldDeadLine, uint recurringDay);
     public:
 
         TaskList* taskList;
