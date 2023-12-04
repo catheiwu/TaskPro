@@ -1,14 +1,14 @@
 #ifndef SUBTASK_H
 #define SUBTASK_H
+#include"Task.h"
 
-
-class Subtask
+class SubTask:Task
 {
 private:
     /* data */
 public:
-    Subtask(/* args */);
-    ~Subtask();
+    SubTask(/* args */);
+    ~SubTask();
 };
 
 #endif
