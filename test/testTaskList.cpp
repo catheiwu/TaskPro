@@ -86,7 +86,7 @@ TEST(TaskList, TestAddTask) {
     EXPECT_EQ(taskList.getAllTasks().size(), 1);
     
 }
-TEST(TaskList, TestAddTask) {
+TEST(TaskList, TestUpdateDdl) {
 
     time_t  timep1;
     time_t  timep2;
