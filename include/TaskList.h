@@ -2,22 +2,28 @@
 #define TASKLIST_H
 
 #include <string>
-#include "Task.h"
+#include "include/Task.h"
 
 using namespace std;
 
-class TaskLlist
+class TaskList
 {
     private:
-        Task[] allTasks;
-        int length;
-        void sort();
+        vector<Task*> allTasks;
+        
+        
 
     public:
+
         TaskList* taskList;
+        TaskList();
+        ~TaskList();
+        void sort();
         void addTask();
         void display();
         void deleteTask();
+        int updateDdl();
+
 
 };
 
