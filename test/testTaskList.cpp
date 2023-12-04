@@ -85,8 +85,56 @@ TEST(TaskList, TestAddTask) {
 
     EXPECT_EQ(taskList.getAllTasks().size(), 1);
     
+}
+TEST(TaskList, TestUpdateDdl) {
+
+    time_t  timep1;
+    time_t  timep2;
+    time_t  timep3,timep4;
+
+    time(&timep1);
+    timep1 -=2;
+
+    TaskList taskList = TaskList();
+
+    MainTask* task1 = new MainTask();// passes
+    task1->editDdlPassed(true);
+    task1->editRecurringEventTime(1);
+    task1->editDdl(localtime(&timep1));
 
 
+    MainTask* task2 = new MainTask();// not passed, don't change
+    task2->editDdlPassed(false);
+    task2->editRecurringEventTime(3);
+    timep2 = timep1 + 1000;
+    task2->editDdl(localtime(&timep2));
+
+
+    MainTask* task3 =new MainTask(); // false but already passed, needs to be changed
+    task3->editDdlPassed(false);
+    task3->editRecurringEventTime(2);
+    timep3 = timep1 - 1000;
+    task3->editDdl(localtime(&timep3));
+
+    MainTask* task4 =new MainTask(); // no recurring
+    task4->editDdlPassed(false);
+    task4->editRecurringEventTime(0);
+    timep4 = timep1 - 1500;
+    task4->editDdl(localtime(&timep4));
+
+    taskList.addTask(task1); 
+    taskList.addTask(task2);
+    taskList.addTask(task3);
+    taskList.addTask(task4);
+
+    
+    int pid = taskList.updateDdl();
+
+    EXPECT_TRUE(pid>0);
+    EXPECT_EQ(taskList.getAllTasks().at(0)->getDdl(), timep1 + ONE_DAY);
+    EXPECT_EQ(taskList.getAllTasks().at(1)->getDdl(), timep2 );
+    EXPECT_EQ(taskList.getAllTasks().at(2)->getDdl(), timep3 + ONE_DAY*2 );
+    EXPECT_EQ(taskList.getAllTasks().at(2)->getDdl(), timep4 );
 }
 
 int main(int argc, char **argv) {

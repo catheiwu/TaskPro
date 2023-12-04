@@ -5,7 +5,8 @@
 #include <ctime>
 #include "Task.h"
 #include "MainTask.h"
-
+#define ONE_HOUR (60 * 60)
+#define ONE_DAY (60 * 60 * 24)
 using namespace std;
 
 class TaskList

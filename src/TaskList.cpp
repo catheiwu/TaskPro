@@ -4,8 +4,7 @@
 #include <string>
 #include <unistd.h>
 #include <ctime>
-#define ONE_HOUR (60 * 60)
-#define ONE_DAY (60 * 60 * 24)
+
 
 using namespace std;
 
