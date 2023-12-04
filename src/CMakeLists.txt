@@ -1,6 +1,5 @@
 add_library(taskLibrary
-    Deadline.cpp
     Task.cpp
-    Description.cpp
+    TaskList.cpp
     Subtask.cpp
 )
