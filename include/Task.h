@@ -2,7 +2,6 @@
 #define TASK_H
 
 #include <string>
-#include "TaskList.h"
 
 using namespace std;
 
@@ -15,6 +14,7 @@ private:
 
 public:
     Task();
+    Task(string Name, string Description, uint Priority);
     ~Task();
     string getName();
     string getDescription();
