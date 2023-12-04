@@ -1,10 +1,9 @@
 #include "gtest/gtest.h"
-#include "DeadLine.h"
 #include "Task.h"
 #include <time.h>
 #include <iostream>
 #include <string.h>
-#include<unistd.h>  
+#include <unistd.h>  
 TEST(TaskTests, testGetDdl)
 {
     time_t timep;
