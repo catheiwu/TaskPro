@@ -100,14 +100,15 @@ int MainTask::updateDdlPassed() {
 
 int MainTask::deleteSubtask(int index) {
 
-    if (taskIndex < 1 || taskIndex > allSubtasks.size())
+    if (index < 1 || index > allSubtasks.size())
     {
         // cout << "Invalid task index. Please enter a valid index." << endl;
         return -1;
     }
-    delete allSubtasks[taskIndex - 1];
-    allSubtasks.erase(allSubtasks.begin() + taskIndex - 1);
+    delete allSubtasks[index - 1];
+    allSubtasks.erase(allSubtasks.begin() + index - 1);
     // cout << "Task deleted successfully!" << endl;
+    return 0;
 }
 
 

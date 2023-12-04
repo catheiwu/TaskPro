@@ -22,10 +22,10 @@ TEST(MainTaskTests, testaddSubtask)
 {
     SubTask* newTask = new SubTask();
     MainTask task = MainTask();
+    task.addSubtask(newTask);
+    task.addSubtask(newTask);
+    task.addSubtask(newTask);
     int length = task.getAllSubtasks().size();
-    task.addSubtask(newTask);
-    task.addSubtask(newTask);
-    task.addSubtask(newTask);
     EXPECT_TRUE(length == 3);
 }
 
@@ -39,8 +39,8 @@ TEST(MainTaskTests ,testEditDdl)
     sleep(2);
     time(&timep);
     // std::string st2 = asctime(localtime(&timep));
-     task.editDdl(localtime(&timep));
-    EXPECT_TRUE(task.getDdl()==timep);
+    task.editDdl(localtime(&timep));
+    EXPECT_EQ(task.getDdl(),timep);
 }
 TEST(MainTaskTests, testEditRecurringEventTime)
 {
