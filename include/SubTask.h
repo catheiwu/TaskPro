@@ -3,7 +3,7 @@
 
 #include"Task.h"
 
-class SubTask:Task
+class SubTask:public Task
 {
 
 private:

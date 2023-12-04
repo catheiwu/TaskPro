@@ -42,6 +42,7 @@ int TaskList::sort(int userChoice)
                 }
             }
         }
+        return 0;
     }
     else if (userChoice == 2)
     { // sort by deadline
@@ -58,6 +59,7 @@ int TaskList::sort(int userChoice)
                 }
             }
         }
+        return 0;
     }
     else
     {

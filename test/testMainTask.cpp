@@ -16,15 +16,17 @@ TEST(MainTaskTests, testisRecurringFalse)
 {
     MainTask newTask = MainTask();
     newTask.editRecurringEventTime(0);
-    EXPECT_TRUE(newTask.isRecurring());
+    EXPECT_FALSE(newTask.isRecurring());
 }
 TEST(MainTaskTests, testaddSubtask)
 {
-    SubTask* newTask = new SubTask();
+    SubTask* newTask1 = new SubTask();
+    SubTask* newTask2 = new SubTask();
+    SubTask* newTask3 = new SubTask();
     MainTask task = MainTask();
-    task.addSubtask(newTask);
-    task.addSubtask(newTask);
-    task.addSubtask(newTask);
+    task.addSubtask(newTask1);
+    task.addSubtask(newTask2);
+    task.addSubtask(newTask3);
     int length = task.getAllSubtasks().size();
     EXPECT_TRUE(length == 3);
 }

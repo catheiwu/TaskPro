@@ -31,7 +31,7 @@ MainTask::~MainTask(){
 
 for (int i = 0; i < allSubtasks.size(); i++) {
 
-        delete Subtasks[i];
+        delete allSubtasks[i];
     }
 
 }
@@ -95,7 +95,7 @@ void MainTask::editRecurringEventTime(uint newRecurringEventTime) {
 
 vector<SubTask*> MainTask::getAllSubtasks(){
 
- return this->allSubtask;
+ return this->allSubtasks;
 }
 
 void MainTask::editDdlPassed(bool passed) {
@@ -139,9 +139,9 @@ int MainTask::sort() { // by priority
         {
             for (int j = 0; j < allSubtasks.size() - i - 1; j++)
             {
-                if (allTasks[j]->getPriority() > allSubtasks[j + 1]->getPriority())
+                if (allSubtasks[j]->getPriority() > allSubtasks[j + 1]->getPriority())
                 {
-                    MainTask* temp = allSubtasks[j];
+                    SubTask* temp = allSubtasks[j];
                     allSubtasks[j] = allSubtasks[j + 1];
                     allSubtasks[j + 1] = temp;
                 }
