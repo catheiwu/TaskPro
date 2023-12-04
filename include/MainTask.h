@@ -26,9 +26,10 @@ public:
     time_t getDdl();
     uint getRecurringEventTime();
     void editDdl(struct tm* newDdl);
-    void editRecurringEventTime(int newRecurringEventTime);
+    void editRecurringEventTime(uint newRecurringEventTime);
     vector<SubTask*> getAllSubtasks();
     void editDdlPassed(bool passed);
+    int updateDdlPassed();
     int deleteSubtask(int index);
     int sort(); //only by priority
 };
