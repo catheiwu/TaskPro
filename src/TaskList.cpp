@@ -151,7 +151,7 @@ int TaskList::updateDdl()
     else // parent prosess
     {
         std::cout << "pid" << std::endl;
-        return;
+        return pid;
     }
 }
 
