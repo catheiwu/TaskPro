@@ -2,31 +2,26 @@
 #define TASK_H
 
 #include <string>
-#include <ctime>
-#include "Subtask.h"
-#include "Deadline.h"
-#include "Description.h"
+#include "TaskList.h"
 
 using namespace std;
 
 class Task
 {
 private:
-    Deadline* ddl;
-    Description* description;
-    Subtask **allSubtasks;
-    uint numSubtasks;
+    string name;
+    string description;
+    uint priority;
 
 public:
-    Task(Deadline* dl,Description* des);
     Task();
     ~Task();
-    int addSubtask(Subtask *newSubtask);
-    int deleteSubtask(int index);
-    std::string getDdl();
-    void editDdl(struct tm *newDdl);
-    std::string getDescription();
-    void editDescription(std::string newDescription);
+    string getName();
+    string getDescription();
+    uint getPriority();
+    void editName(string newName);
+    void editDescription(string newDescription);
+    void editPriority(uint newPriority);
 };
 
 #endif
