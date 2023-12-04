@@ -44,6 +44,7 @@ void PrintMainMenu()
 int main()
 {
     PrintMainMenu();
+    
     return 0;
 }
 
