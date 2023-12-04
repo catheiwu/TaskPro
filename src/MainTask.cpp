@@ -7,13 +7,32 @@ using namespace std;
 
 MainTask::MainTask(){
 
+    ddl = nullptr;
+    recurringEventTime = 0;
+    ddlPassed = false;
+    
+
 
 }
+
+MainTask::MainTask(struct tm* Ddl, uint RecurringEventTime, bool DdlPassed) {
+
+    ddl = Ddl;
+    recurringEventTime = RecurringEventTime;
+    ddlPassed = DdlPassed;
+    
+}
+
+
+
 
 
 MainTask::~MainTask(){
 
+for (int i = 0; i < allSubtasks.size(); i++) {
 
+        delete Subtasks[i];
+    }
 
 }
 
@@ -46,34 +65,37 @@ int MainTask::addSubtask(SubTask* newSubtask) {
 
 time_t MainTask::getDdl() {
 
-return 0;
+    return mktime (ddl);
 
 }
 
 
 uint MainTask::getRecurringEventTime() {
 
-return 0;
+ return recurringEventTime;
 
 }
 
 void MainTask::editDdl(struct tm* newDdl) {
 
-return ;
+    ddl = newDdl;
+
+    return;
 
 }
 
 
 void MainTask::editRecurringEventTime(uint newRecurringEventTime) {
 
+    recurringEventTime = newRecurringEventTime;
 
+    return;
 }
 
 
 vector<SubTask*> MainTask::getAllSubtasks(){
 
-MainTask* q = new MainTask();
-return q->allSubtasks;
+ return this->allSubtask;
 }
 
 void MainTask::editDdlPassed(bool passed) {
@@ -111,4 +133,18 @@ int MainTask::deleteSubtask(int index) {
     return 0;
 }
 
+int MainTask::sort() { // by priority
 
+    for (int i = 0; i < allSubtasks.size() - 1; i++)
+        {
+            for (int j = 0; j < allSubtasks.size() - i - 1; j++)
+            {
+                if (allTasks[j]->getPriority() > allSubtasks[j + 1]->getPriority())
+                {
+                    MainTask* temp = allSubtasks[j];
+                    allSubtasks[j] = allSubtasks[j + 1];
+                    allSubtasks[j + 1] = temp;
+                }
+            }
+        }
+}
