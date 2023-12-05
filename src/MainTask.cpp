@@ -71,7 +71,7 @@ int MainTask::addSubtask(SubTask* newSubtask) {
 
 time_t MainTask::getDdl() {
 
-    return mktime (ddl);
+    return mktime(ddl);
 
 }
 
