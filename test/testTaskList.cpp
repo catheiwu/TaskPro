@@ -36,13 +36,14 @@ TEST(TaskList, TestSortbyDdl) {
     time_t  timep2;
     time_t  timep3;
 
-    time(&timep1);
+    
 
     TaskList taskList = TaskList();
     MainTask* task1 = new MainTask();
     MainTask* task2 = new MainTask();
-    MainTask* task3 =new MainTask();
+    MainTask* task3 = new MainTask();
 
+    time(&timep1);
     task1->editDdl(localtime(&timep1));
 
     timep2 = timep1 + 100;
