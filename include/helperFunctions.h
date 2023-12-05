@@ -7,10 +7,10 @@
 using namespace std;
 
 
-    void displayTasks();
-    void taskToAdd():
-    void taskToDelete():
-    void taskToEdit();
+    void displayTasks(TaskList*);
+    void taskToAdd(TaskList*):
+    void taskToDelete(TaskList*):
+    void taskToEdit(TaskList*);
 
 
 #endif
