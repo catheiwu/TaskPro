@@ -44,17 +44,21 @@ TEST(TaskList, TestSortbyDdl) {
     MainTask* task3 =new MainTask();
 
     task1->editDdl(localtime(&timep1));
-    timep2 = timep1 + 10;
+
+    timep2 = timep1 + 100;
     task2->editDdl(localtime(&timep2));
+
     
 
-    timep3 = timep1 + 20;
+    timep3 = timep1 + 200;
     task3->editDdl(localtime(&timep3));
+
+std::cout<<timep1<<","<<timep2<<","<<timep3<<std::endl;
 
     taskList.addTask(task3); 
     taskList.addTask(task2);
     taskList.addTask(task1);
-    taskList.sort(2);
+    // taskList.sort(2);
 
 
     EXPECT_EQ(taskList.getAllTasks().at(0)->getDdl(), timep1);
@@ -76,14 +80,58 @@ TEST(TaskList, TestDeleteTask) {
 }
 
 
-TEST(TaskList, TestAddTask) {
+TEST(TaskList, TestAddTask_size) {
 
     TaskList taskList = TaskList();
     MainTask* newTask = new MainTask();
     MainTask* task1 = new MainTask();
     taskList.addTask(task1);
+    taskList.addTask(newTask);
 
-    EXPECT_EQ(taskList.getAllTasks().size(), 1);
+    EXPECT_EQ(taskList.getAllTasks().size(), 2);
+    
+}
+
+TEST(TaskList, TestAddTask_content_ddl) {
+
+    TaskList taskList = TaskList();
+    MainTask* newTask = new MainTask();
+    time_t  timep1;
+    time_t  timep2;
+    time(&timep1);
+    timep2 = timep1 + 100;
+    newTask->editDdl(localtime(&timep1));
+    ASSERT_EQ(newTask->getDdl(),timep1);
+
+    MainTask* task1 = new MainTask();
+    task1->editDdl(localtime(&timep2));
+    ASSERT_EQ(task1->getDdl(),timep2);
+    ASSERT_EQ(newTask->getDdl(),timep1);
+
+    taskList.addTask(task1);
+    taskList.addTask(newTask);
+
+    EXPECT_EQ(taskList.getAllTasks()[0]->getDdl(),timep2 );
+    EXPECT_EQ(taskList.getAllTasks()[1]->getDdl(),timep1 );
+    dTask_content_priority) {
+
+}
+
+TEST(TaskList, TestAd
+    TaskList taskList = TaskList();
+    MainTask* task2 = new MainTask();
+    task2->editPriority(2);
+    ASSERT_EQ(task2->getPriority(),2);
+
+    MainTask* task1 = new MainTask();
+    task1->editPriority(1);
+    ASSERT_EQ(task1->getPriority(),1);
+
+    taskList.addTask(task1);
+    taskList.addTask(task2);
+
+    EXPECT_EQ(taskList.getAllTasks()[0]->getPriority(),1 );
+    EXPECT_EQ(taskList.getAllTasks()[1]->getPriority(),2 );
     
 }
 TEST(TaskList, TestUpdateDdl) {
@@ -134,7 +182,7 @@ TEST(TaskList, TestUpdateDdl) {
     EXPECT_EQ(taskList.getAllTasks().at(0)->getDdl(), timep1 + ONE_DAY);
     EXPECT_EQ(taskList.getAllTasks().at(1)->getDdl(), timep2 );
     EXPECT_EQ(taskList.getAllTasks().at(2)->getDdl(), timep3 + ONE_DAY*2 );
-    EXPECT_EQ(taskList.getAllTasks().at(2)->getDdl(), timep4 );
+    EXPECT_EQ(taskList.getAllTasks().at(3)->getDdl(), timep4 );
 }
 
 int main(int argc, char **argv) {

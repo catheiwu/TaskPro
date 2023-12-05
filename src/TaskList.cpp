@@ -72,7 +72,7 @@ int TaskList::addTask()
 {
 
     MainTask *newTask = new MainTask();
-    allTasks.push_back(newTask);
+    this->allTasks.push_back(newTask);
 
     return 0;
 }
@@ -81,7 +81,7 @@ int TaskList::addTask(MainTask *newTask)
 {
 
     // Task *taskToAdd = new MainTask(taskName);
-    allTasks.push_back(newTask);
+    this->allTasks.push_back(newTask);
 
     return 0;
 }
