@@ -7,7 +7,7 @@ using namespace std;
 
 MainTask::MainTask(){
 
-    ddl = nullptr;
+    ddl = 0;
     recurringEventTime = 0;
     ddlPassed = false;
     
@@ -15,14 +15,14 @@ MainTask::MainTask(){
 
 }
 
-MainTask::MainTask(struct tm* Ddl, uint RecurringEventTime, bool DdlPassed) {
+MainTask::MainTask(time_t Ddl, uint RecurringEventTime, bool DdlPassed) {
 
     ddl = Ddl;
     recurringEventTime = RecurringEventTime;
     ddlPassed = DdlPassed;
     
 }
-MainTask::MainTask(struct tm* Ddl, uint RecurringEventTime, bool DdlPassed,std::string Name, std::string Description, uint Priority):Task(Name, Description,Priority){
+MainTask::MainTask(time_t Ddl, uint RecurringEventTime, bool DdlPassed,std::string Name, std::string Description, uint Priority):Task(Name, Description,Priority){
 
     ddl = Ddl;
     recurringEventTime = RecurringEventTime;
@@ -71,7 +71,7 @@ int MainTask::addSubtask(SubTask* newSubtask) {
 
 time_t MainTask::getDdl() {
 
-    return mktime(ddl);
+    return ddl;
 
 }
 
@@ -82,7 +82,7 @@ uint MainTask::getRecurringEventTime() {
 
 }
 
-void MainTask::editDdl(struct tm* newDdl) {
+void MainTask::editDdl(time_t newDdl) {
 
     ddl = newDdl;
 
