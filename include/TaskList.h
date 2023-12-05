@@ -13,7 +13,8 @@ class TaskList
 {
     private:
         vector<MainTask*> allTasks;
-        time_t _addRecurring(time_t oldDeadLine, uint recurringDay);
+        // static time_t _addRecurring(time_t oldDeadLine, uint recurringDay);
+        static void* _updateDdlHelper(void *parent);
     public:
 
         TaskList* taskList;
