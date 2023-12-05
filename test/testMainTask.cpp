@@ -7,7 +7,7 @@
 #include "../include/MainTask.h"
 TEST(MainTaskTests, testisRecurringTrue)
 {
-    MainTask newTask = MainTask(nullptr, 0, false, "hi", "des", 0);
+    MainTask newTask = MainTask(0, 0, false, "hi", "des", 0);
     newTask.editRecurringEventTime(1);
     EXPECT_TRUE(newTask.isRecurring());
 }
@@ -36,11 +36,11 @@ TEST(MainTaskTests, testEditDdl)
     time_t timep;
     time(&timep);
     // std::string st1 = asctime(localtime(&timep));
-    task.editDdl(localtime(&timep));
+    task.editDdl(timep);
     sleep(2);
     time(&timep);
     // std::string st2 = asctime(localtime(&timep));
-    task.editDdl(localtime(&timep));
+    task.editDdl(timep);
     EXPECT_EQ(task.getDdl(), timep);
 }
 
@@ -50,11 +50,11 @@ TEST(MainTaskTests, testEditDdl2)
     time_t timep, timep2;
     time(&timep);
     // std::string st1 = asctime(localtime(&timep));
-    task.editDdl(localtime(&timep));
+    task.editDdl(timep);
     EXPECT_EQ(task.getDdl(), timep);
     timep2 = timep + 200;
     // std::string st2 = asctime(localtime(&timep));
-    task.editDdl(localtime(&timep2));
+    task.editDdl(timep2);
     EXPECT_EQ(task.getDdl(), timep2);
 }
 TEST(MainTaskTests, testEditDdl_pointer)
@@ -63,11 +63,11 @@ TEST(MainTaskTests, testEditDdl_pointer)
     time_t timep, timep2;
     time(&timep);
     // std::string st1 = asctime(localtime(&timep));
-    task->editDdl(localtime(&timep));
+    task->editDdl(timep);
     EXPECT_EQ(task->getDdl(), timep);
     timep2 = timep + 200;
     // std::string st2 = asctime(localtime(&timep));
-    task->editDdl(localtime(&timep2));
+    task->editDdl(timep2);
     EXPECT_EQ(task->getDdl(), timep2);
 }
 
@@ -83,7 +83,7 @@ TEST(MainTaskTests, testGetDdl)
 {
     time_t timep;
     time(&timep);
-    MainTask task = MainTask(localtime(&timep),0,false);
+    MainTask task = MainTask(timep,0,false);
     EXPECT_EQ(timep, task.getDdl());
 }
 
