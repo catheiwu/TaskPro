@@ -3,4 +3,5 @@ add_library(taskLibrary
     TaskList.cpp
     Subtask.cpp
     MainTask.cpp
+    helperFunctions.cpp
 )

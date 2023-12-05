@@ -170,8 +170,8 @@ TEST(TaskList, TestUpdateDdl)
     taskList.addTask(task3);
     taskList.addTask(task4);
     sleep(1);
-    int pid = taskList.updateDdl();
-    sleep(1);
+    uint pid = taskList.updateDdl();
+    sleep(2);
 
 
     EXPECT_TRUE(pid > 0);
