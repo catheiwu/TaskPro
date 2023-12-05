@@ -11,6 +11,6 @@ using namespace std;
     void taskToAdd(TaskList*):
     void taskToDelete(TaskList*):
     void taskToEdit(TaskList*);
-
-
+    void sort(TaskList*);
+    
 #endif
