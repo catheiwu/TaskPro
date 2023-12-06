@@ -99,6 +99,9 @@ time_t _addRecurring(time_t oldDeadLine, uint recurringDay)
     return newDdl;
 }
 
+
+//return the user input integer if the int > 0
+// if not return -1
 int getUserInput()
 {
     char buff[MAX_BUFF_SIZE] = {};
