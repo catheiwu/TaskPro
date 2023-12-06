@@ -170,8 +170,8 @@ TEST(TaskList, TestUpdateDdl)
     taskList.addTask(task3);
     taskList.addTask(task4);
     sleep(1);
-    int pid = taskList.updateDdl();
-    sleep(1);
+    uint pid = taskList.updateDdl();
+    sleep(2);
 
 
     EXPECT_TRUE(pid > 0);
@@ -182,9 +182,3 @@ TEST(TaskList, TestUpdateDdl)
     EXPECT_EQ(taskList.getAllTasks().at(3)->getDdl(), timep4);
 }
 
-int main(int argc, char **argv)
-{
-
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}

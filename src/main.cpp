@@ -46,9 +46,6 @@ int main()
             cout << "Invalid choice. Please enter a number between 1 and 5.\n";
         }
     }
-    
-    return 0;
 }
-
 
 

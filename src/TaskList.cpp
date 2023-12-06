@@ -1,12 +1,11 @@
 #include "../include/TaskList.h"
 #include "../include/MainTask.h"
+#include "../include/helperFunctions.h"
 #include <iostream>
 #include <string>
 #include <unistd.h>
 #include <ctime>
 #include <algorithm>
-
-
 
 using namespace std;
 
@@ -38,7 +37,7 @@ int TaskList::sort(int userChoice)
             {
                 if (allTasks[j]->getPriority() > allTasks[j + 1]->getPriority())
                 {
-                    MainTask* temp = allTasks[j];
+                    MainTask *temp = allTasks[j];
                     allTasks[j] = allTasks[j + 1];
                     allTasks[j + 1] = temp;
                 }
@@ -55,7 +54,7 @@ int TaskList::sort(int userChoice)
             {
                 if (allTasks[j]->getDdl() > allTasks[j + 1]->getDdl())
                 {
-                    MainTask* temp = allTasks[j];
+                    MainTask *temp = allTasks[j];
                     allTasks[j] = allTasks[j + 1];
                     allTasks[j + 1] = temp;
                 }
@@ -104,77 +103,66 @@ int TaskList::deleteTask(int taskIndex)
 
 // updateDdl when the program started and update very hour.
 // make sure it's only called once.
-// return the pid when successful, -1 when fail.
+// return the tid when successful, -1 when fail.
 int TaskList::updateDdl()
 {
-    int pid = 0;
-    pid = fork();
-    if (pid == -1)
-    {
-        std::cerr << "Error: fork error" << std::endl;
-        return -1;
-    }
-    else if (pid == 0) // child process
-    {
-        while (true)
+    pthread_t threadID;
+    int ret = pthread_create(&threadID, NULL,
+                   _updateDdlHelper, this);
+    if (ret != 0)
         {
-            // get current time
-            time_t time_current;
-            time(&time_current);
-            for (int i = 0; i < allTasks.size(); i++)
-            {
-                MainTask *mt = allTasks[i];
-                std::cout<<"in loop "<< i <<std::endl;
-                if (mt->isRecurring())
-                {
-                    std::cout<<"isRecurring "<< i <<std::endl;
-                    
-                    if (mt->isDdlPassed()) // already passed, updating it
-                    {   
-                        std::cout<<"mt->isDdlPassed()"<< i <<std::endl;
-                        time_t oldDeadLine = mt->getDdl();
-                        std::cout<<"ddl before"<< oldDeadLine <<std::endl;
-                        mt->editDdl(_addRecurring(oldDeadLine, mt->getRecurringEventTime()));
-                        std::cout<<"ddl after"<< mt->getDdl() <<std::endl;
-                    }
-                    else // not marked passed but it could be.
-                    {
-                        if (mt->getDdl() < time_current) // ddl already passed
-                        {
-                            std::cout<<" < time_current"<< i <<std::endl;
-                            mt->editDdlPassed(true);
-                            time_t oldDeadLine = mt->getDdl();
-                            mt->editDdl(_addRecurring(oldDeadLine, mt->getRecurringEventTime()));
-                        }
-                    }
-                }
-                else // not recurring, do nothing
-                {
-
-                }
-            }// update all the tasks in list
-
-            sleep(ONE_HOUR);
-
-
+           std::cout << "pthread_create error: error_code=" << ret << std::endl;
         }
-    }
-    else // parent prosess
-    {
-        std::cout << pid << std::endl;
-        return pid;
-    }
+    pthread_detach(threadID);
+    return static_cast<uint> (threadID);
 }
 
-// get the old one ddl and return the newone
-time_t TaskList::_addRecurring(time_t oldDeadLine, uint recurringDay)
+void* TaskList::_updateDdlHelper(void *arg)
 {
-    std::cout<<"in _addRecurring "<<std::endl;
-    time_t newDdl = oldDeadLine + (ONE_DAY * recurringDay);
-    return newDdl;
+    TaskList* parent = static_cast<TaskList*>(arg) ;
+    while (true)
+    {
+        // get current time
+        time_t time_current;
+        time(&time_current);
+        for (int i = 0; i < parent->allTasks.size(); i++)
+        {
+            MainTask *mt = parent->allTasks[i];
+            // std::cout << "in loop " << i << std::endl;
+            if (mt->isRecurring())
+            {
+                // std::cout << "isRecurring " << i << std::endl;
+
+                if (mt->isDdlPassed()) // already passed, updating it
+                {
+                    // std::cout << "mt->isDdlPassed()" << i << std::endl;
+                    time_t oldDeadLine = mt->getDdl();
+                    // std::cout << "ddl before" << oldDeadLine << std::endl;
+                    mt->editDdl(_addRecurring(oldDeadLine, mt->getRecurringEventTime()));
+                    // std::cout << "ddl after" << mt->getDdl() << std::endl;
+                }
+                else // not marked passed but it could be.
+                {
+                    if (mt->getDdl() < time_current) // ddl already passed
+                    {
+                        // std::cout << " < time_current" << i << std::endl;
+                        mt->editDdlPassed(true);
+                        time_t oldDeadLine = mt->getDdl();
+                        mt->editDdl(_addRecurring(oldDeadLine, mt->getRecurringEventTime()));
+                    }
+                }
+            }
+            else // not recurring, do nothing
+            {
+            }
+        } // update all the tasks in list
+
+        sleep(ONE_HOUR);
+    }
 }
 
-vector<MainTask*> TaskList::getAllTasks()
+
+vector<MainTask *> TaskList::getAllTasks()
 {
     return this->allTasks;
 }
