@@ -251,7 +251,7 @@ time_t getUserInputDdl()
     cout << "Please enter month of deadline (use a number 1-12)" << endl;
 
 
-    while(month=getUserInputInteger() == -1 && month<=12) {
+    while(month=getUserInputInteger() == -1 || month > 12) {
 
         cout << "Month must be between 1 and 12" << endl;
         // month = getUserInputInteger();
@@ -260,7 +260,7 @@ time_t getUserInputDdl()
 
     cout << "Please enter day of deadline (use a number 1-31)" << endl;
 
-     while(day = getUserInputInteger() == -1 && day <= 31) {
+     while(day = getUserInputInteger() == -1 || day > 31) {
 
         cout << "day must be between 1 and 31" << endl;
         // month = getUserInputInteger();
@@ -268,7 +268,7 @@ time_t getUserInputDdl()
 
     cout << "Please enter hour of deadline (use a number 1-24)" << endl;
 
-     while(hour = getUserInputInteger() == -1 && day <= 24) {
+     while(hour = getUserInputInteger() == -1 || day > 24) {
 
         cout << "hour must be between 1 and 24" << endl;
         // month = getUserInputInteger();
@@ -277,7 +277,7 @@ time_t getUserInputDdl()
 
     cout << "Please enter minutes of deadline (use a number 0-60)" << endl;
 
-    while(minute = getUserInputInteger() == -1 && minute <= 60) {
+    while(minute = getUserInputInteger() == -1 || minute > 60) {
 
         cout << "hour must be between 1 and 60" << endl;
         // month = getUserInputInteger();
