@@ -14,6 +14,7 @@ void printMainMenu();
 void displayTasks(TaskList*);
 void taskToAdd(TaskList*);
 void subtaskToAdd(MainTask*);
+void subtaskToDelete(MainTask*);
 void taskToDelete(TaskList*);
 void taskToEdit(TaskList*);
 void subtaskToEdit(MainTask*);

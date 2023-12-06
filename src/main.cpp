@@ -27,34 +27,30 @@ int main()
             cout << "Add tasks\n";
             taskToAdd(tl);
         }
-        else if (userChoice == 3)
-        {
-            // cout << "Delete tasks\n";
-            // subtaskToAdd(tl);
-        }
-        else if (userChoice == 4)
+        else  if (userChoice == 3)
         {
             cout << "Delete tasks\n";
             taskToDelete(tl);
         }
-        else if (userChoice == 5)
+        else if (userChoice == 4)
         {
             cout << "Edit tasks\n";
             taskToEdit(tl);
+            // printMainMenu();
         }
-        else if (userChoice == 6)
+        else if (userChoice == 5)
         {
             cout << "Sort tasks\n";
             sortTasks(tl);
         }
-        else if (userChoice == 7)
+        else if (userChoice == 6)
         {
             cout << "Quit\n";
             return 0;
         }
         else
         {
-            cout << "Invalid choice. Please enter a number between 1 and 7.\n";
+            cout << "Invalid choice. Please enter a number between 1 and 6.\n";
             printMainMenu();
         }
     }

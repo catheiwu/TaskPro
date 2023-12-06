@@ -119,10 +119,14 @@ int TaskList::deleteTask(int taskIndex)
 
     // Delete the associated subtasks before deleting the main task
     MainTask* mainTaskToDelete = allTasks[taskIndex - 1];
-    for (SubTask* subTask : mainTaskToDelete->getAllSubtasks())
-    {
-        delete subTask;
-    }
+    // for(int i = 0; i<mainTaskToDelete->getAllSubtasks().size();i++)
+    // {
+    //     delete mainTaskToDelete->getAllSubtasks().at(i);
+    // }
+    // for (SubTask* subTask : mainTaskToDelete->getAllSubtasks())
+    // {
+    //     delete subTask;
+    // }
 
     // Now delete the main task
     delete mainTaskToDelete;
