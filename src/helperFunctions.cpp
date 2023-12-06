@@ -9,7 +9,6 @@
 #include <unistd.h>
 #include <cstdlib>
 #include <cstring>
-#include <cstdio>
 using namespace std;
 
 void printMainMenu()
@@ -52,12 +51,15 @@ void displayTasks(TaskList *taskList)
         } else {
             taskDeadline = ctime(&ddl);
         }
-        cout << "Task deadline: " << taskDeadline << endl;
+        taskDeadline = taskDeadline.substr(0, taskDeadline.size() - 1);
+        cout << "Task deadline: " << taskDeadline << "  ";
         
         t1[i]->updateDdlPassed();
         if (t1[i]->isDdlPassed() == true){
             cout << "Deadline passed!\t";
         }
+
+        cout << endl;
 
         if(taskDescription == ""){
             taskDescription = "No description";
@@ -79,13 +81,14 @@ void displayTasks(TaskList *taskList)
             }
     }
     cout << endl << endl << endl;
-    printMainMenu();
+
 }
 
 void taskToAdd(TaskList *taskList)
 {
 
     string taskName; //prompt for taskname
+    cout << endl << endl;
     cout << "Enter the task name: ";
     taskName = getUserInputString();
 
@@ -158,12 +161,10 @@ void subtaskToAdd(MainTask* maintask) {
 
     while (subtaskName == "") {
 
-        
         cout << "Nothing entered. Please enter valid task name: " << endl;
-        subtaskName = getUserInputString();
+        cin >> ws;
+        getline(cin, subtaskName);
     }
-
-  
 
     SubTask* newSubtask = new SubTask();
     newSubtask->editName(subtaskName);
@@ -193,9 +194,10 @@ void subtaskToAdd(MainTask* maintask) {
 
 void taskToDelete(TaskList *taskList)
 {
-
+    cout << endl << endl;
     int taskIndex;
-    cout << "Enter the task index: " << endl;
+    displayTasks(taskList);
+    cout << "Enter the index of the task you want to delete: " << endl;
     taskIndex = getUserInputInteger();
 
      while(taskIndex == -1||taskIndex > taskList->getAllTasks().size()) {
@@ -242,6 +244,7 @@ void taskToEdit(TaskList *taskList)
         cout << "Invalid choice. Please enter a number between 1 and 6.\n";
         taskEditNum = getUserInputInteger();
     }
+    cout << endl << endl;
 
     if (taskEditNum == 1)
     {
@@ -359,7 +362,10 @@ void sortTasks(TaskList *taskList)
 {
 
     int sortChoice;
+    cout << endl << endl;
+    displayTasks(taskList);
     cout << "Enter 1 - Sort by priority. Enter 2 - Sort by deadline." << endl;
+    cout << endl << endl;
     sortChoice = getUserInputInteger();
 
      while(sortChoice != 1 && sortChoice != 2) {/////
@@ -393,7 +399,7 @@ int getUserInputInteger()
     char buff[MAX_BUFF_SIZE] = {};
     int choice = 0;
     memset(buff, 0, sizeof(buff));
-    fgets(buff, MAX_BUFF_SIZE-1 , stdin);
+    std::cin >> buff;
     char *p;  
     choice = strtol(buff, &p, 0);
     if(choice<=0)
@@ -409,7 +415,7 @@ int getUserInputIntegerForMinute()
     char buff[MAX_BUFF_SIZE] = {};
     int choice = 0;
     memset(buff, 0, sizeof(buff));
-    fgets(buff, MAX_BUFF_SIZE-1 , stdin);
+    std::cin >> buff;
     char *p;  
     choice = strtol(buff, &p, 0);
     if(choice<0)
@@ -507,14 +513,16 @@ std::string getUserInputString()
     char buff2[MAX_BUFF_SIZE] = {};
     memset(buff, 0, sizeof(buff));
     memset(buff2, 0, sizeof(buff));
-    // std::cin >> buff;
-    fgets(buff, MAX_BUFF_SIZE-1 , stdin);
+    std::cin >> buff;
     int j = 0;
     int i = 0;
-    for(;buff[i]==' ';i++);
     for(; i<strlen(buff);i++)
     {
-         if(buff[i] == '\n')
+        if(buff[i] == 32)//space
+        {
+            continue;
+        }
+        else if(buff[i] == '\n')
         {
             buff2[j] = '\0';
             j++;

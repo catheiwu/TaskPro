@@ -20,6 +20,7 @@ int main()
         {
             cout << "View list of tasks\n";
             displayTasks(tl);
+            printMainMenu();
         }
         else if (userChoice == 2)
         {
