@@ -45,7 +45,7 @@ int main()
         else if (userChoice == 3)
         {
             // cout << "Delete tasks\n";
-            // taskToDelete(tl);
+            subtaskToAdd(tl);
         }
         else if (userChoice == 4)
         {

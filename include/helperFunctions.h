@@ -13,6 +13,7 @@ using namespace std;
 
 void displayTasks(TaskList*);
 void taskToAdd(TaskList*);
+void subtaskToAdd(TaskList* taskList);
 void taskToDelete(TaskList*);
 void taskToEdit(TaskList*);
 void sort(TaskList*);
