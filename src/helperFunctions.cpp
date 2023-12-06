@@ -73,16 +73,26 @@ void taskToAdd(TaskList *taskList)
 
   }
 
-// void taskToDelete(TaskList *taskList)
-// {
+void taskToDelete(TaskList *taskList)
+{
 
-//     int taskNumber;
-//     cout << "Enter the task number: ";
-//     cin.ignore(); // To clear the buffer before getline
-//     getline(cin, taskNumber);
-//     taskList->deleteTask();
-//     cout << "Task deleted successfully!\n";
-// }
+    int taskIndex;
+    cout << "Enter the task index: " << endl;
+    taskIndex = getUserInputInteger();
+
+     while(taskIndex == -1||taskIndex > taskList->getAllTasks().size()) {
+
+
+
+            cout << "There is no task at that index" << endl;
+  
+        // cout << "Enter non-zero valid index" << endl;
+        taskIndex = getUserInputInteger();
+    }
+
+    taskList->deleteTask(taskIndex);
+    cout << "Task deleted successfully!\n";
+}
 
 // void taskToEdit(TaskList *taskList)
 // {
