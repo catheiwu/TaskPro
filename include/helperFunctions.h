@@ -10,12 +10,12 @@
 
 using namespace std;
 
-
+void printMainMenu();
 void displayTasks(TaskList*);
 void taskToAdd(TaskList*);
 void taskToDelete(TaskList*);
 void taskToEdit(TaskList*);
-void sort(TaskList*);
+void sortTasks(TaskList*);
 void* updateDdlHelper(void*);
 time_t _addRecurring(time_t oldDeadLine, uint recurringDay);
 int getUserInputInteger();
