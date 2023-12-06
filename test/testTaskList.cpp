@@ -5,6 +5,7 @@
 #include <string.h>
 #include <unistd.h>
 #include "../include/MainTask.h"
+#include "../include/dfs.h"
 using namespace std;
 
 TEST(TaskList, TestSortbyPriority)

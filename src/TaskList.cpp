@@ -1,6 +1,7 @@
 #include "../include/TaskList.h"
 #include "../include/MainTask.h"
 #include "../include/helperFunctions.h"
+#include "../include/dfs.h"
 #include <iostream>
 #include <string>
 #include <unistd.h>
