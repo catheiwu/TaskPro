@@ -311,7 +311,7 @@ time_t getUserInputDdl()
     Ddl->tm_sec = 0;
     Ddl->tm_min = curTime->tm_min;
     Ddl->tm_hour = curTime->tm_hour;
-    cout << "hello" << curTime->tm_hour << endl;
+    // cout << "hello" << curTime->tm_hour << endl;
     Ddl->tm_mday = curTime->tm_mday;
     Ddl->tm_mon = curTime->tm_mon;
     Ddl->tm_year = curTime->tm_year;
