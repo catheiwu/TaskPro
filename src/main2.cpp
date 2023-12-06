@@ -7,8 +7,13 @@
 #include <ctime>
 #include <unistd.h>
 
+using namespace std;
 int main()
 {
+    while(true)
+    {
+        cout<<getUserInputString()<<endl;
+    }
     TaskList* ts = new TaskList();
     MainTask* mt1 = new MainTask();
     MainTask* mt2 = new MainTask();

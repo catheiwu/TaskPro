@@ -17,10 +17,11 @@ void subtaskToAdd(TaskList* taskList);
 void taskToDelete(TaskList*);
 void taskToEdit(TaskList*);
 void sort(TaskList*);
-void* updateDdlHelper(void*);
+// void* updateDdlHelper(void*);
 time_t _addRecurring(time_t oldDeadLine, uint recurringDay);
 int getUserInputInteger();
 time_t getUserInputDdl();
 int getUserInputIntegerForMinute();
+std::string getUserInputString();
     
 #endif
