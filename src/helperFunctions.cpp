@@ -149,25 +149,11 @@ void taskToAdd(TaskList *taskList)
 
   }
 
-void subtaskToAdd(TaskList* taskList) {
-    if(taskList->getAllTasks().size()==0)
-    {
-        cout << "There is no Main task added " << endl;
-        return;
-
-    }
-
-    cout << "Which task would you like to have a subtask for" << endl;
-    int taskIndex = getUserInputInteger();
-
-    while(taskIndex == -1||taskIndex > taskList->getAllTasks().size()) {
-
-        cout << "There is no task at that index" << endl;
-        taskIndex = getUserInputInteger();
-    }
+void subtaskToAdd(MainTask* maintask) {
+    
 
     string subtaskName;
-    cout << "Enter the subtask name: ";
+    cout << "Enter the new subtask name: ";
     subtaskName = getUserInputString();
 
     while (subtaskName == "") {
@@ -200,7 +186,7 @@ void subtaskToAdd(TaskList* taskList) {
     getline(cin, desc);
     newSubtask->editDescription(desc);
 
-    taskList->getAllTasks().at(taskIndex-1)->addSubtask(newSubtask);
+    maintask->addSubtask(newSubtask);
 
 
 }
@@ -229,6 +215,11 @@ void taskToDelete(TaskList *taskList)
 
 void taskToEdit(TaskList *taskList)
 {
+    if(taskList->getAllTasks().size()==0)
+    {
+        cout << "There is no Main task added " << endl;
+        return;
+    }
     int taskIndex;
     displayTasks(taskList);
     cin.ignore();
@@ -243,10 +234,12 @@ void taskToEdit(TaskList *taskList)
     cout << "Enter 2 - Edit task description." << endl;
     cout << "Enter 3 - Edit task priority." << endl;
     cout << "Enter 4 - Edit task deadline." << endl;
+    cout << "Enter 5 - Add Subtask." << endl;
+    cout << "Enter 6 - Edit Subtask." << endl;
     int taskEditNum;
     taskEditNum = getUserInputInteger();
-    while (taskEditNum == -1 || taskEditNum > 4){
-        cout << "Invalid choice. Please enter a number between 1 and 4.\n";
+    while (taskEditNum == -1 || taskEditNum > 6){
+        cout << "Invalid choice. Please enter a number between 1 and 6.\n";
         taskEditNum = getUserInputInteger();
     }
 
@@ -256,6 +249,13 @@ void taskToEdit(TaskList *taskList)
         string newTaskName; //prompt for taskname
         cin.ignore(); // To clear the buffer before getline
         getline(cin, newTaskName);
+        newTaskName = getUserInputString();
+
+        while (newTaskName == "") 
+        {
+            cout << "Nothing entered. Please enter valid task name: " << endl;
+            newTaskName = getUserInputString();
+        }
         taskList->getAllTasks().at(taskIndex-1)->editName(newTaskName);
     }
     else if (taskEditNum == 2)
@@ -282,9 +282,77 @@ void taskToEdit(TaskList *taskList)
         time_t newTaskDeadLine = getUserInputDdl();
         taskList->getAllTasks().at(taskIndex-1)->editDdl(newTaskDeadLine);
     }
+    else if (taskEditNum == 5)
+    {
+        subtaskToAdd(taskList->getAllTasks().at(taskIndex-1));
+    }
+    else if (taskEditNum == 6)
+    {
+        subtaskToEdit(taskList->getAllTasks().at(taskIndex-1));
+    }
     return;
     cout << endl << endl;
     printMainMenu();
+}
+
+void subtaskToEdit(MainTask* maintask)
+{
+    // SubTask* sb = new SubTask ();
+    if(maintask->getAllSubtasks().size()==0)
+    {
+        cout << "There is no subtask added " << endl;
+        return;
+    }
+    int taskIndex;
+    // displayTasks(taskList);
+    // cin.ignore();
+    cout << "Enter the number of which subtask would you like to edit: \n";
+    taskIndex = getUserInputInteger();
+    while(taskIndex == -1 || taskIndex > maintask->getAllSubtasks().size()) {
+        cout << "no index found" << endl;
+        taskIndex = getUserInputInteger();
+    }
+    cout << "Enter 1 - Edit subtask name." << endl;
+    cout << "Enter 2 - Edit subtask description." << endl;
+    cout << "Enter 3 - Edit subtask priority." << endl;
+    int taskEditNum;
+    taskEditNum = getUserInputInteger();
+    while (taskEditNum == -1 || taskEditNum > 3){
+        cout << "Invalid choice. Please enter a number between 1 and 3.\n";
+        taskEditNum = getUserInputInteger();
+    }
+    if (taskEditNum == 1)
+    {
+        cout << "What would you like to edit the subtask name to?\n";
+        string taskName = getUserInputString();
+
+        while (taskName == "") 
+        {
+            cout << "Nothing entered. Please enter valid task name: " << endl;
+            taskName = getUserInputString();
+        }
+        
+            maintask->getAllSubtasks().at(taskIndex-1)->editName(taskName);
+    }
+    else if (taskEditNum == 2)
+    {
+        cout << "What would you like to edit the description to?\n";
+        string newDescription;
+        cin.ignore();
+        getline(cin, newDescription);
+        maintask->getAllSubtasks().at(taskIndex-1)->editDescription(newDescription);
+    }
+    else if (taskEditNum == 3)
+    {
+        cout << "What priority should this subtask be?\n";
+        int newPriority;
+        newPriority = getUserInputInteger();
+        while (newPriority == -1 || newPriority > INFINITY){
+            cout << "Invalid choice. Please enter a valid number for priority.\n";
+        }
+        maintask->getAllSubtasks().at(taskIndex-1)->editPriority(newPriority);
+    }
+
 }
 
 void sortTasks(TaskList *taskList)
