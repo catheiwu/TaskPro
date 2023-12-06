@@ -9,6 +9,7 @@
 #include <unistd.h>
 #include <cstdlib>
 #include <cstring>
+#include <cstdio>
 using namespace std;
 
 void printMainMenu()
@@ -323,7 +324,7 @@ int getUserInputInteger()
     char buff[MAX_BUFF_SIZE] = {};
     int choice = 0;
     memset(buff, 0, sizeof(buff));
-    std::cin >> buff;
+    fgets(buff, MAX_BUFF_SIZE-1 , stdin);
     char *p;  
     choice = strtol(buff, &p, 0);
     if(choice<=0)
@@ -339,7 +340,7 @@ int getUserInputIntegerForMinute()
     char buff[MAX_BUFF_SIZE] = {};
     int choice = 0;
     memset(buff, 0, sizeof(buff));
-    std::cin >> buff;
+    fgets(buff, MAX_BUFF_SIZE-1 , stdin);
     char *p;  
     choice = strtol(buff, &p, 0);
     if(choice<0)
@@ -437,16 +438,14 @@ std::string getUserInputString()
     char buff2[MAX_BUFF_SIZE] = {};
     memset(buff, 0, sizeof(buff));
     memset(buff2, 0, sizeof(buff));
-    std::cin >> buff;
+    // std::cin >> buff;
+    fgets(buff, MAX_BUFF_SIZE-1 , stdin);
     int j = 0;
     int i = 0;
+    for(;buff[i]==' ';i++);
     for(; i<strlen(buff);i++)
     {
-        if(buff[i] == 32)//space
-        {
-            continue;
-        }
-        else if(buff[i] == '\n')
+         if(buff[i] == '\n')
         {
             buff2[j] = '\0';
             j++;
