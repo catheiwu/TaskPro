@@ -81,14 +81,13 @@ void taskToAdd(TaskList *taskList)
 
     string taskName; //prompt for taskname
     cout << "Enter the task name: ";
-    cin.ignore(); // To clear the buffer before getline
-    getline(cin, taskName);
+    taskName = getUserInputString();
 
     while (taskName == "") {
 
         
         cout << "Nothing entered. Please enter valid task name: " << endl;
-        getline(cin, taskName);
+        taskName = getUserInputString();
     }
     MainTask* newtask = new MainTask();
     newtask->editName(taskName);
@@ -445,6 +444,7 @@ std::string getUserInputString()
         else if(buff[i] == '\n')
         {
             buff2[j] = '\0';
+            j++;
             break;
         }
         else
@@ -452,6 +452,10 @@ std::string getUserInputString()
             buff2[j] = buff[i];
             j++;
         }
+    }
+    if(strlen(buff2)==0)
+    {
+        return "";
     }
     return std::string(buff2);
 
