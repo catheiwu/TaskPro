@@ -11,6 +11,24 @@
 #include <cstring>
 using namespace std;
 
+void printMainMenu()
+{
+    int userChoice;
+
+    cout << "==========================\n";
+    cout << "-------Main Menu----------\n";
+    cout << "==========================\n";
+    cout << "1) View list of tasks\n";
+    cout << "2) Add tasks\n";
+    cout << "3) Add subtasks\n";
+    cout << "4) Delete tasks\n";
+    cout << "5) Edit tasks\n";
+    cout << "6) Sort tasks\n";
+    cout << "7) Quit\n";
+    cout << "other: print main menu\n";
+    cout << "                       \n";
+}
+
 void displayTasks(TaskList *taskList)
 {
     vector<MainTask*> t1 = taskList->getAllTasks();
@@ -54,6 +72,8 @@ void displayTasks(TaskList *taskList)
                 cout << '\t'<<"Subtask description: " << sub[j]->getDescription() << endl;
             }
     }
+    cout << endl << endl << endl;
+    printMainMenu();
 }
 
 void taskToAdd(TaskList *taskList)
@@ -118,6 +138,9 @@ void taskToAdd(TaskList *taskList)
 
 
     taskList->addTask(newtask);
+
+    cout << "Task added successfully!" << endl <<endl; 
+    printMainMenu();
 
   }
 
@@ -194,7 +217,8 @@ void taskToDelete(TaskList *taskList)
     }
 
     taskList->deleteTask(taskIndex);
-    cout << "Task deleted successfully!\n";
+    cout << "Task deleted successfully!\n\n";
+    printMainMenu();
 }
 
 void taskToEdit(TaskList *taskList)
@@ -253,6 +277,8 @@ void taskToEdit(TaskList *taskList)
         taskList->getAllTasks().at(taskIndex-1)->editDdl(newTaskDeadLine);
     }
     return;
+    cout << endl << endl;
+    printMainMenu();
 }
 
 void sortTasks(TaskList *taskList)
@@ -262,7 +288,7 @@ void sortTasks(TaskList *taskList)
     cout << "Enter 1 - Sort by priority. Enter 2 - Sort by deadline." << endl;
     sortChoice = getUserInputInteger();
 
-     while(sortChoice != 1 || sortChoice != 2) {/////
+     while(sortChoice != 1 && sortChoice != 2) {/////
         cout << "Enter 1 or 2." << endl;
         sortChoice = getUserInputInteger();
     }
@@ -275,7 +301,6 @@ void sortTasks(TaskList *taskList)
     {
         taskList->sort(2);
     }
-    
 }
 
 // get the old one ddl and return the newone

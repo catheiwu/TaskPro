@@ -2,24 +2,8 @@
 #include <vector>
 // #include "../include/TaskList.h"
 #include "../include/helperFunctions.h"
-
 using namespace std;
-void printMainMenu()
-{
-    int userChoice;
 
-    cout << "=======================\n";
-    cout << "-------Main Menu-------\n";
-    cout << "=======================\n";
-    cout << "1) View list of tasks\n";
-    cout << "2) Add tasks\n";
-    cout << "3) Add subtasks\n";
-    cout << "4) Delete tasks\n";
-    cout << "5) Edit tasks\n";
-    cout << "6) Quit\n";
-    cout << "other: print main menu\n";
-    cout << "                       \n";
-}
 int main()
 {
     TaskList* tl = new TaskList();
@@ -59,12 +43,17 @@ int main()
         }
         else if (userChoice == 6)
         {
+            cout << "Sort tasks\n";
+            sortTasks(tl);
+        }
+        else if (userChoice == 7)
+        {
             cout << "Quit\n";
             return 0;
         }
         else
         {
-            cout << "Invalid choice. Please enter a number between 1 and 5.\n";
+            cout << "Invalid choice. Please enter a number between 1 and 7.\n";
             printMainMenu();
         }
     }

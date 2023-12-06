@@ -34,7 +34,6 @@ int TaskList::sort(int userChoice)
     { // sort by priority
 
 
-
         for (int i = 0; i < allTasks.size() - 1; i++)
         {
             allTasks[i]->sort();
