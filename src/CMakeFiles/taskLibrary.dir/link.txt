@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../lib/libtaskLibrary.a CMakeFiles/taskLibrary.dir/Task.cpp.o CMakeFiles/taskLibrary.dir/TaskList.cpp.o CMakeFiles/taskLibrary.dir/Subtask.cpp.o CMakeFiles/taskLibrary.dir/MainTask.cpp.o CMakeFiles/taskLibrary.dir/helperFunctions.cpp.o
-/usr/bin/ranlib ../lib/libtaskLibrary.a
