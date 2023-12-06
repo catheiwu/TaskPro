@@ -152,7 +152,7 @@ void taskToAdd(TaskList *taskList)
 void subtaskToAdd(TaskList* taskList) {
     if(taskList->getAllTasks().size()==0)
     {
-        cout << "There is no Mian task added " << endl;
+        cout << "There is no Main task added " << endl;
         return;
 
     }
@@ -168,15 +168,16 @@ void subtaskToAdd(TaskList* taskList) {
 
     string subtaskName;
     cout << "Enter the subtask name: ";
-    cin.ignore(); // To clear the buffer before getline
-    getline(cin, subtaskName);
+    subtaskName = getUserInputString();
 
     while (subtaskName == "") {
 
+        
         cout << "Nothing entered. Please enter valid task name: " << endl;
-        cin >> ws;
-        getline(cin, subtaskName);
+        subtaskName = getUserInputString();
     }
+
+  
 
     SubTask* newSubtask = new SubTask();
     newSubtask->editName(subtaskName);
