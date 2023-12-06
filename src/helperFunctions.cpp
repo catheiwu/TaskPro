@@ -69,7 +69,7 @@ void taskToAdd(TaskList *taskList)
     cout << "Enter priority for this task" << endl;
     priority = getUserInputInteger();
 
-    while(priority == -1) {
+    while(priority == -1|| priority > INFINITY) {
 
         cout << "Priority must be greater than 0" << endl;
         priority = getUserInputInteger();
@@ -112,6 +112,53 @@ void taskToAdd(TaskList *taskList)
     taskList->addTask(newtask);
 
   }
+
+void subtaskToAdd(TaskList* taskList) {
+    if(taskList->getAllTasks().size()==0)
+    {
+        cout << "There is no Mian task added " << endl;
+        return;
+
+    }
+
+    cout << "Which task would you like to have a subtask for" << endl;
+    int taskIndex = getUserInputInteger();
+
+    while(taskIndex == -1||taskIndex > taskList->getAllTasks().size()) {
+
+        cout << "There is no task at that index" << endl;
+        taskIndex = getUserInputInteger();
+    }
+
+    string subtaskName;
+    cout << "Enter the subtask name: ";
+    cin.ignore(); // To clear the buffer before getline
+    getline(cin, subtaskName);
+    SubTask* newSubtask = new SubTask();
+    newSubtask->editName(subtaskName);
+
+    uint priority; //prompt for priority
+    cout << "Enter priority for this subtask" << endl;
+    priority = getUserInputInteger();
+
+     while(priority == -1|| priority > INFINITY ) {
+
+        cout << "Priority must be greater than 0" << endl;
+        priority = getUserInputInteger();
+    }
+    newSubtask->editPriority(priority);
+
+    string desc; // prompt for task description
+    cout << "Enter description for subtask" << endl;
+
+    cin.ignore();
+    getline(cin, desc);
+    newSubtask->editDescription(desc);
+
+    taskList->getAllTasks().at(taskIndex-1)->addSubtask(newSubtask);
+
+
+}
 
 void taskToDelete(TaskList *taskList)
 {
