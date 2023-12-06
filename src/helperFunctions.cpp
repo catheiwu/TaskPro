@@ -9,7 +9,6 @@
 #include <unistd.h>
 #include <cstdlib>
 #include <cstring>
-#include <cstdio>
 using namespace std;
 
 void printMainMenu()
@@ -53,11 +52,6 @@ void displayTasks(TaskList *taskList)
             taskDeadline = ctime(&ddl);
         }
         cout << "Task deadline: " << taskDeadline << endl;
-        
-        t1[i]->updateDdlPassed();
-        if (t1[i]->isDdlPassed() == true){
-            cout << "Deadline passed!\t";
-        }
 
         if(taskDescription == ""){
             taskDescription = "No description";
@@ -79,7 +73,7 @@ void displayTasks(TaskList *taskList)
             }
     }
     cout << endl << endl << endl;
-    printMainMenu();
+    
 }
 
 void taskToAdd(TaskList *taskList)
@@ -152,7 +146,7 @@ void taskToAdd(TaskList *taskList)
 void subtaskToAdd(TaskList* taskList) {
     if(taskList->getAllTasks().size()==0)
     {
-        cout << "There is no Main task added " << endl;
+        cout << "There is no Mian task added " << endl;
         return;
 
     }
@@ -168,16 +162,15 @@ void subtaskToAdd(TaskList* taskList) {
 
     string subtaskName;
     cout << "Enter the subtask name: ";
-    subtaskName = getUserInputString();
+    cin.ignore(); // To clear the buffer before getline
+    getline(cin, subtaskName);
 
     while (subtaskName == "") {
 
-        
         cout << "Nothing entered. Please enter valid task name: " << endl;
-        subtaskName = getUserInputString();
+        cin >> ws;
+        getline(cin, subtaskName);
     }
-
-  
 
     SubTask* newSubtask = new SubTask();
     newSubtask->editName(subtaskName);
@@ -209,7 +202,8 @@ void taskToDelete(TaskList *taskList)
 {
 
     int taskIndex;
-    cout << "Enter the task index: " << endl;
+    displayTasks(taskList);
+    cout << "Enter the index of the task you want to delete: " << endl;
     taskIndex = getUserInputInteger();
 
      while(taskIndex == -1||taskIndex > taskList->getAllTasks().size()) {
@@ -230,12 +224,14 @@ void taskToDelete(TaskList *taskList)
 void taskToEdit(TaskList *taskList)
 {
     int taskIndex;
+    cout << endl << endl;
     displayTasks(taskList);
     cin.ignore();
-    cout << "Enter the number of which task would you like to edit: \n";
+    cout << "Enter the index of which task would you like to edit: \n";
     taskIndex = getUserInputInteger();
     while(taskIndex == -1 || taskIndex > taskList->getAllTasks().size()) {
         cout << "Task number must be greater than 0" << endl;
+        cout << "Enter the index of which task would you like to edit: \n";
         taskIndex = getUserInputInteger();
     }
 
@@ -282,9 +278,10 @@ void taskToEdit(TaskList *taskList)
         time_t newTaskDeadLine = getUserInputDdl();
         taskList->getAllTasks().at(taskIndex-1)->editDdl(newTaskDeadLine);
     }
-    return;
+    
     cout << endl << endl;
     printMainMenu();
+    return;
 }
 
 void sortTasks(TaskList *taskList)
@@ -307,6 +304,7 @@ void sortTasks(TaskList *taskList)
     {
         taskList->sort(2);
     }
+     printMainMenu();
 }
 
 // get the old one ddl and return the newone
@@ -325,7 +323,7 @@ int getUserInputInteger()
     char buff[MAX_BUFF_SIZE] = {};
     int choice = 0;
     memset(buff, 0, sizeof(buff));
-    fgets(buff, MAX_BUFF_SIZE-1 , stdin);
+    std::cin >> buff;
     char *p;  
     choice = strtol(buff, &p, 0);
     if(choice<=0)
@@ -341,7 +339,7 @@ int getUserInputIntegerForMinute()
     char buff[MAX_BUFF_SIZE] = {};
     int choice = 0;
     memset(buff, 0, sizeof(buff));
-    fgets(buff, MAX_BUFF_SIZE-1 , stdin);
+    std::cin >> buff;
     char *p;  
     choice = strtol(buff, &p, 0);
     if(choice<0)
@@ -439,14 +437,16 @@ std::string getUserInputString()
     char buff2[MAX_BUFF_SIZE] = {};
     memset(buff, 0, sizeof(buff));
     memset(buff2, 0, sizeof(buff));
-    // std::cin >> buff;
-    fgets(buff, MAX_BUFF_SIZE-1 , stdin);
+    std::cin >> buff;
     int j = 0;
     int i = 0;
-    for(;buff[i]==' ';i++);
     for(; i<strlen(buff);i++)
     {
-         if(buff[i] == '\n')
+        if(buff[i] == 32)//space
+        {
+            continue;
+        }
+        else if(buff[i] == '\n')
         {
             buff2[j] = '\0';
             j++;
