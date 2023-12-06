@@ -13,16 +13,31 @@ using namespace std;
 //     taskList->getAllSubtasks();
 // }
 
-// void taskToAdd(TaskList *taskList)
-// {
+void taskToAdd(TaskList *taskList)
+{
 
-//     int taskNumber;
-//     cout << "Enter the task number: ";
-//     cin.ignore(); // To clear the buffer before getline
-//     getline(cin, newTask);
-//     taskList->addTask();
-//     cout << "Task added successfully!\n";
-// }
+    string taskName;
+    cout << "Enter the task name: ";
+    cin.ignore(); // To clear the buffer before getline
+    getline(cin, taskName);
+    MainTask* newtask = new MainTask();
+    newtask->editName(taskName);
+    cout << "Task added successfully!\n";
+    uint priority;
+    cout << "Enter priority for this task" << endl;
+    cin >> priority;
+
+    //f (priority != )
+
+    struct tm* ddl;
+    
+
+    taskList->addTask(newtask);
+
+  
+    
+
+}
 
 // void taskToDelete(TaskList *taskList)
 // {
