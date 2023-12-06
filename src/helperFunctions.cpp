@@ -22,7 +22,7 @@ void displayTasks(TaskList *taskList)
         if(taskPriority == to_string(INFINITY)){
             taskPriority = "No priority";
         }
-        cout << "Task priority: " << t1[i]->getPriority() << '\t';
+        cout << "Task priority: " << taskPriority << '\t';
 
         if(t1[i]->getDdl() == 0){
             
@@ -30,7 +30,7 @@ void displayTasks(TaskList *taskList)
         } else {
             taskDeadline = taskDeadline.substr(0, taskDeadline.size() - 1);
         }
-        cout << "Task deadline: " << t1[i]->getDdl() << endl;
+        cout << "Task deadline: " << taskDeadline << endl;
 
         if(taskDescription == ""){
             taskDescription = "No description";
@@ -46,9 +46,9 @@ void displayTasks(TaskList *taskList)
                 if (subtaskPriority == to_string(INFINITY)){
                     subtaskPriority = "No priority";
                 }
-                cout << "Priority description: " << sub[j]->getPriority() << '\t';
+                cout << "Priority: " << subtaskPriority << endl;
 
-                cout << "Subtask description: " << sub[j]->getDescription() << '\t';
+                cout << '\t'<<"Subtask description: " << sub[j]->getDescription() << endl;
             }
     }
 }
