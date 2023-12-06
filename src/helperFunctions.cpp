@@ -62,6 +62,12 @@ void taskToAdd(TaskList *taskList)
     cout << "Enter the task name: ";
     cin.ignore(); // To clear the buffer before getline
     getline(cin, taskName);
+
+    while (taskName == "") {
+
+        cout << "Nothing entered. Please enter valid task name: " << endl;
+        getline(cin, taskName);
+    }
     MainTask* newtask = new MainTask();
     newtask->editName(taskName);
     
@@ -134,6 +140,13 @@ void subtaskToAdd(TaskList* taskList) {
     cout << "Enter the subtask name: ";
     cin.ignore(); // To clear the buffer before getline
     getline(cin, subtaskName);
+
+    while (subtaskName == "") {
+
+        cout << "Nothing entered. Please enter valid task name: " << endl;
+        getline(cin, subtaskName);
+    }
+
     SubTask* newSubtask = new SubTask();
     newSubtask->editName(subtaskName);
 
