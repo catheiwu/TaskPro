@@ -81,13 +81,14 @@ void displayTasks(TaskList *taskList)
             }
     }
     cout << endl << endl << endl;
-    printMainMenu();
+
 }
 
 void taskToAdd(TaskList *taskList)
 {
 
     string taskName; //prompt for taskname
+    cout << endl << endl;
     cout << "Enter the task name: ";
     taskName = getUserInputString();
 
@@ -208,9 +209,10 @@ void subtaskToAdd(TaskList* taskList) {
 
 void taskToDelete(TaskList *taskList)
 {
-
+    cout << endl << endl;
     int taskIndex;
-    cout << "Enter the task index: " << endl;
+    displayTasks(taskList);
+    cout << "Enter the index of the task you want to delete: " << endl;
     taskIndex = getUserInputInteger();
 
      while(taskIndex == -1||taskIndex > taskList->getAllTasks().size()) {
@@ -250,6 +252,7 @@ void taskToEdit(TaskList *taskList)
         cout << "Invalid choice. Please enter a number between 1 and 4.\n";
         taskEditNum = getUserInputInteger();
     }
+    cout << endl << endl;
 
     if (taskEditNum == 1)
     {
@@ -292,7 +295,10 @@ void sortTasks(TaskList *taskList)
 {
 
     int sortChoice;
+    cout << endl << endl;
+    displayTasks(taskList);
     cout << "Enter 1 - Sort by priority. Enter 2 - Sort by deadline." << endl;
+    cout << endl << endl;
     sortChoice = getUserInputInteger();
 
      while(sortChoice != 1 && sortChoice != 2) {/////
