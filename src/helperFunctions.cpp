@@ -8,7 +8,7 @@
 #include <unistd.h>
 #include <cstdlib>
 #include <cstring>
-#define MAX_BUFF_SIZE 100
+
 using namespace std;
 
 void displayTasks(TaskList *taskList)
