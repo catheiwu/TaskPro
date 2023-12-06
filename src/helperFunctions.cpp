@@ -52,6 +52,11 @@ void displayTasks(TaskList *taskList)
             taskDeadline = ctime(&ddl);
         }
         cout << "Task deadline: " << taskDeadline << endl;
+        
+        t1[i]->updateDdlPassed();
+        if (t1[i]->isDdlPassed() == true){
+            cout << "Deadline passed!\t";
+        }
 
         if(taskDescription == ""){
             taskDescription = "No description";
