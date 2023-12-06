@@ -242,6 +242,22 @@ int getUserInputInteger()
     
 }
 
+int getUserInputIntegerForMinute()
+{
+    char buff[MAX_BUFF_SIZE] = {};
+    int choice = 0;
+    memset(buff, 0, sizeof(buff));
+    std::cin >> buff;
+    char *p;  
+    choice = strtol(buff, &p, 0);
+    if(choice<0)
+    {
+        return -1;
+    }
+    return choice;
+    
+}
+
 time_t getUserInputDdl() 
 {
 
@@ -250,48 +266,52 @@ time_t getUserInputDdl()
 
     cout << "Please enter month of deadline (use a number 1-12)" << endl;
 
-
-    while(month=getUserInputInteger() == -1 || month > 12) {
+    month = getUserInputInteger();
+    while(month == -1 || month > 12) {
 
         cout << "Month must be between 1 and 12" << endl;
-        // month = getUserInputInteger();
+        month = getUserInputInteger();
     }
     month--;
 
     cout << "Please enter day of deadline (use a number 1-31)" << endl;
 
-     while(day = getUserInputInteger() == -1 || day > 31) {
+    day = getUserInputInteger();
+    while(day == -1 || day > 31) {
 
         cout << "day must be between 1 and 31" << endl;
-        // month = getUserInputInteger();
+        day = getUserInputInteger();
     }
 
-    cout << "Please enter hour of deadline (use a number 1-24)" << endl;
+    cout << "Please enter hour of deadline (use a number 0-23)" << endl;
 
-     while(hour = getUserInputInteger() == -1 || day > 24) {
+    hour = getUserInputIntegerForMinute();
+     while(hour == -1 || day > 23) {
 
-        cout << "hour must be between 1 and 24" << endl;
-        // month = getUserInputInteger();
+        cout << "hour must be between 0 and 23" << endl;
+        hour = getUserInputIntegerForMinute();
     }
-    --hour;
+    
 
     cout << "Please enter minutes of deadline (use a number 0-60)" << endl;
 
-    while(minute = getUserInputInteger() == -1 || minute > 60) {
+    minute = getUserInputIntegerForMinute();
+    while(minute == -1 || minute > 60) {
 
-        cout << "hour must be between 1 and 60" << endl;
-        // month = getUserInputInteger();
+        cout << "minute must be between 1 and 60" << endl;
+        minute = getUserInputIntegerForMinute();
     }
-    --minute;
+    // --minute;
 
     time_t currentTime;
     time(&currentTime);
 
     struct tm* curTime = localtime(&currentTime);
 
-    Ddl->tm_sec = curTime->tm_sec;
+    Ddl->tm_sec = 0;
     Ddl->tm_min = curTime->tm_min;
     Ddl->tm_hour = curTime->tm_hour;
+    cout << "hello" << curTime->tm_hour << endl;
     Ddl->tm_mday = curTime->tm_mday;
     Ddl->tm_mon = curTime->tm_mon;
     Ddl->tm_year = curTime->tm_year;
