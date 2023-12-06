@@ -30,6 +30,10 @@ TaskList::~TaskList()
 int TaskList::sort(int userChoice)
 {
 
+    if (allTasks.size() == 0) {
+
+        return 0;
+    }
     if (userChoice == 1)
     { // sort by priority
 
@@ -47,6 +51,7 @@ int TaskList::sort(int userChoice)
                 }
             }
         }
+
         allTasks[allTasks.size() - 1]->sort();
         return 0;
     }
