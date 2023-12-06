@@ -112,6 +112,52 @@ void taskToAdd(TaskList *taskList)
 
   }
 
+void subtaskToAdd(TaskList* taskList) {
+
+    cout << "Which task would you like to have a subtask for" << endl;
+    int task = getUserInputInteger();
+
+    while(task == -1||task > taskList->getAllTasks().size()) {
+
+        cout << "There is no task at that index" << endl;
+        taskIndex = getUserInputInteger();
+    }
+
+
+
+
+    string subtaskName;
+    cout << "Enter the subtask name: ";
+    cin.ignore(); // To clear the buffer before getline
+    getline(cin, subtaskName);
+    MainTask* newSubtask = new MainTask();
+    newSubtask->editName(subtaskName);
+
+    uint priority; //prompt for priority
+    cout << "Enter priority for this subtask" << endl;
+    priority = getUserInputInteger();
+
+     while(priority == -1) {
+
+        cout << "Priority must be greater than 0" << endl;
+        priority = getUserInputInteger();
+    }
+    newSubtask->editPriority(priority);
+
+    string desc; // prompt for task description
+    cout << "Enter description for subtask" << endl;
+
+    cin.ignore();
+    getline(cin, desc);
+    newSubtask->editDescription(desc);
+    
+    MainTask->
+
+
+
+
+}
+
 void taskToDelete(TaskList *taskList)
 {
 
