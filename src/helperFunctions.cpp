@@ -65,6 +65,7 @@ void taskToAdd(TaskList *taskList)
 
     while (taskName == "") {
 
+        
         cout << "Nothing entered. Please enter valid task name: " << endl;
         getline(cin, taskName);
     }
@@ -144,6 +145,7 @@ void subtaskToAdd(TaskList* taskList) {
     while (subtaskName == "") {
 
         cout << "Nothing entered. Please enter valid task name: " << endl;
+        cin >> ws;
         getline(cin, subtaskName);
     }
 
