@@ -15,5 +15,6 @@ using namespace std;
 // void sort(TaskList*);
 // void* updateDdlHelper(void*);
 time_t _addRecurring(time_t oldDeadLine, uint recurringDay);
+int getUserInput();
     
 #endif
