@@ -7,13 +7,14 @@
 #include <unistd.h>
 #include <cstdlib>
 #include <cstring>
+#define INFINITY 9999999
 #define MAX_BUFF_SIZE 100
 using namespace std;
 
-// void displayTasks(TaskList *taskList)
-// {
-//     taskList->getAllSubtasks();
-// }
+void displayTasks(TaskList *taskList)
+{
+    // taskList->getAllSubtasks();
+}
 
 void taskToAdd(TaskList *taskList)
 {
@@ -84,38 +85,63 @@ void taskToAdd(TaskList *taskList)
 //     cout << "Task deleted successfully!\n";
 // }
 
-// void taskToEdit(TaskList *taskList)
-// {
+void taskToEdit(TaskList *taskList)
+{
+    int taskIndex;
+    displayTasks(taskList);
+    cin.ignore();
+    cout << "Enter the number of which task would you like to edit: \n";
+    taskIndex = getUserInputInteger();
+    while(taskIndex == -1 || taskIndex > taskList->getAllTasks().size()) {
+        cout << "Task number must be greater than 0" << endl;
+        taskIndex = getUserInputInteger();
+    }
 
-//     int editChoice;
+    cout << "Enter 1 - Edit task name." << endl;
+    cout << "Enter 2 - Edit task description." << endl;
+    cout << "Enter 3 - Edit task priority." << endl;
+    cout << "Enter 4 - Edit task deadline." << endl;
+    int taskEditNum;
+    taskEditNum = getUserInputInteger();
+    while (taskEditNum == -1 || taskEditNum > 4){
+        cout << "Invalid choice. Please enter a number between 1 and 4.\n";
+        taskEditNum = getUserInputInteger();
+    }
 
-//     cout << "Enter 1 - Edit task name." << endl;
-//     cout << "Enter 2 - Edit task description." << endl;
-//     cout << "Enter 3 - Edit task priority." << endl;
-//     cout << "Enter 4 - Edit task deadline." << endl;
-//     cin >> sortChoice;
-
-//     if (userChoice == 1)
-//     {
-//         taskList->editName();
-//     }
-//     else if (userChoice == 2)
-//     {
-//         taskList->editDescription();
-//     }
-//     else if (userChoice == 3)
-//     {
-//         taskList->editPriority;
-//     }
-//     else if (userChoice == 4)
-//     {
-//         taskList->editDdl();
-//     }
-//     else
-//     {
-//         cout << "Invalid choice. Please enter a number between 1 and 4.\n";
-//     }
-// }
+    if (taskEditNum == 1)
+    {
+        cout << "What would you like to edit the task name to?\n";
+        string newTaskName; //prompt for taskname
+        cin.ignore(); // To clear the buffer before getline
+        getline(cin, newTaskName);
+        taskList->getAllTasks().at(taskIndex)->editName(newTaskName);
+    }
+    else if (taskEditNum == 2)
+    {
+        cout << "What would you like to edit the description to?\n";
+        string newDescription;
+        cin.ignore();
+        getline(cin, newDescription);
+        taskList->getAllTasks().at(taskIndex)->editDescription(newDescription);
+    }
+    else if (taskEditNum == 3)
+    {
+        cout << "What priority should this task be?\n";
+        int newPriority;
+        newPriority = getUserInputInteger();
+        while (newPriority == -1 || newPriority > INFINITY){
+            cout << "Invalid choice. Please enter a valid number for priority.\n";
+        }
+        taskList->getAllTasks().at(taskIndex)->editPriority(newPriority);
+    }
+    else if (taskEditNum == 4)
+    {
+        cout << "What do you want the new deadline to be?\n";
+        time_t newTaskDeadLine = getUserInputDdl();
+        taskList->getAllTasks().at(taskIndex)->editDdl(newTaskDeadLine);
+    }
+    return;
+}
 
 // void sortTasks(TaskList *taskList)
 // {
@@ -231,7 +257,6 @@ time_t getUserInputDdl()
 
         Ddl->tm_year += 1;
     }
-
 
 
     time_t deadline = mktime(Ddl);
