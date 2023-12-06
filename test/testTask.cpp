@@ -48,9 +48,3 @@ TEST(TaskTests, testEditName)
     a.editName(s);
     EXPECT_TRUE(s.compare(a.getName())==0);
 }
-
-int main(int argc, char **argv)
-{
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}

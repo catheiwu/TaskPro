@@ -182,9 +182,3 @@ TEST(TaskList, TestUpdateDdl)
     EXPECT_EQ(taskList.getAllTasks().at(3)->getDdl(), timep4);
 }
 
-int main(int argc, char **argv)
-{
-
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
