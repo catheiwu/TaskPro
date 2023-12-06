@@ -167,26 +167,28 @@ void taskToDelete(TaskList *taskList)
 //     }
 // }
 
-// void sortTasks(TaskList *taskList)
-// {
+void sortTasks(TaskList *taskList)
+{
 
-//     int sortChoice;
+    int sortChoice;
+    cout << "Enter 1 - Sort by priority. Enter 2 - Sort by deadline." << endl;
+    sortChoice = getUserInputInteger();
 
-//     cout << "Enter 1 - Sort by priority. Enter 2 - Sort by deadline." cin >> sortChoice;
+     while(sortChoice != 1 || sortChoice != 2) {/////
+        cout << "Enter 1 or 2." << endl;
+        sortChoice = getUserInputInteger();
+    }
 
-//     if (userChoice == 1)
-//     {
-//         taskList->sort(1);
-//     }
-//     else if (userChoice == 2)
-//     {
-//         taskList->sort(2);
-//     }
-//     else
-//     {
-//         cout << "Invalid choice. Please enter a number between 1 and 2.\n";
-//     }
-// }
+    if (sortChoice == 1)
+    {
+        taskList->sort(1);
+    }
+    else if (sortChoice == 2)
+    {
+        taskList->sort(2);
+    }
+    
+}
 
 // get the old one ddl and return the newone
 time_t _addRecurring(time_t oldDeadLine, uint recurringDay)

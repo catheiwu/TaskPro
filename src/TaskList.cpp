@@ -32,8 +32,11 @@ int TaskList::sort(int userChoice)
     if (userChoice == 1)
     { // sort by priority
 
+
+
         for (int i = 0; i < allTasks.size() - 1; i++)
         {
+            allTasks[i]->sort();
             for (int j = 0; j < allTasks.size() - i - 1; j++)
             {
                 if (allTasks[j]->getPriority() > allTasks[j + 1]->getPriority())
@@ -44,6 +47,7 @@ int TaskList::sort(int userChoice)
                 }
             }
         }
+        allTasks[allTasks.size() - 1]->sort();
         return 0;
     }
     else if (userChoice == 2)
