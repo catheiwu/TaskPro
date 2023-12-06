@@ -1,1 +1,0 @@
-/usr/bin/c++  -std=c++1y CMakeFiles/TaskPro.out.dir/main.cpp.o -o ../bin/TaskPro.out  ../lib/libtaskLibrary.a 
