@@ -24,12 +24,13 @@ void displayTasks(TaskList *taskList)
             taskPriority = "No priority";
         }
         cout << "Task priority: " << taskPriority << '\t';
+        time_t ddl = t1[i]->getDdl();
 
-        if(t1[i]->getDdl() == 0){
+        if(ddl == 0){
             
             taskDeadline = "No deadline";
         } else {
-            taskDeadline = taskDeadline.substr(0, taskDeadline.size() - 1);
+            taskDeadline = ctime(&ddl);
         }
         cout << "Task deadline: " << taskDeadline << endl;
 
@@ -162,7 +163,7 @@ void taskToEdit(TaskList *taskList)
         string newTaskName; //prompt for taskname
         cin.ignore(); // To clear the buffer before getline
         getline(cin, newTaskName);
-        taskList->getAllTasks().at(taskIndex)->editName(newTaskName);
+        taskList->getAllTasks().at(taskIndex-1)->editName(newTaskName);
     }
     else if (taskEditNum == 2)
     {
@@ -170,7 +171,7 @@ void taskToEdit(TaskList *taskList)
         string newDescription;
         cin.ignore();
         getline(cin, newDescription);
-        taskList->getAllTasks().at(taskIndex)->editDescription(newDescription);
+        taskList->getAllTasks().at(taskIndex-1)->editDescription(newDescription);
     }
     else if (taskEditNum == 3)
     {
@@ -180,13 +181,13 @@ void taskToEdit(TaskList *taskList)
         while (newPriority == -1 || newPriority > INFINITY){
             cout << "Invalid choice. Please enter a valid number for priority.\n";
         }
-        taskList->getAllTasks().at(taskIndex)->editPriority(newPriority);
+        taskList->getAllTasks().at(taskIndex-1)->editPriority(newPriority);
     }
     else if (taskEditNum == 4)
     {
         cout << "What do you want the new deadline to be?\n";
         time_t newTaskDeadLine = getUserInputDdl();
-        taskList->getAllTasks().at(taskIndex)->editDdl(newTaskDeadLine);
+        taskList->getAllTasks().at(taskIndex-1)->editDdl(newTaskDeadLine);
     }
     return;
 }
