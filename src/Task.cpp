@@ -1,12 +1,14 @@
 #include "../include/Task.h"
+#include "../include/dfs.h"
 #include <ctime>
 #include <unistd.h>
+
 #include <iostream>
 
 Task::Task(){
     name = "";
     description = "";
-    priority = 0;
+    priority = INFINITY;
 }
 
 Task::Task(string Name, string Description, uint Priority){

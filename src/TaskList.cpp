@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <ctime>
 #include <algorithm>
+#include <pthread.h>
 
 using namespace std;
 
@@ -87,19 +88,40 @@ int TaskList::addTask(MainTask *newTask)
     return 0;
 }
 
+// int TaskList::deleteTask(int taskIndex)
+// {
+
+//     if (taskIndex < 1 || taskIndex > allTasks.size())
+//     {
+//         // cout << "Invalid task index. Please enter a valid index." << endl;
+//         return -1;
+//     }
+//     delete allTasks[taskIndex - 1];
+//     allTasks.erase(allTasks.begin() + taskIndex - 1);
+//     // cout << "Task deleted successfully!" << endl;
+//     return 0;
+// }
 int TaskList::deleteTask(int taskIndex)
 {
-
     if (taskIndex < 1 || taskIndex > allTasks.size())
     {
-        // cout << "Invalid task index. Please enter a valid index." << endl;
         return -1;
     }
-    delete allTasks[taskIndex - 1];
+
+    // Delete the associated subtasks before deleting the main task
+    MainTask* mainTaskToDelete = allTasks[taskIndex - 1];
+    for (SubTask* subTask : mainTaskToDelete->getAllSubtasks())
+    {
+        delete subTask;
+    }
+
+    // Now delete the main task
+    delete mainTaskToDelete;
     allTasks.erase(allTasks.begin() + taskIndex - 1);
-    // cout << "Task deleted successfully!" << endl;
+
     return 0;
 }
+
 
 // updateDdl when the program started and update very hour.
 // make sure it's only called once.

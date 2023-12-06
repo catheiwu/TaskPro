@@ -3,6 +3,7 @@
 #include "../include/SubTask.h"
 #include "../include/MainTask.h"
 #include "../include/helperFunctions.h"
+#include "../include/dfs.h"
 #include <ctime>
 #include <unistd.h>
 #include <cstdlib>
@@ -10,10 +11,49 @@
 #define MAX_BUFF_SIZE 100
 using namespace std;
 
-// void displayTasks(TaskList *taskList)
-// {
-//     taskList->getAllSubtasks();
-// }
+void displayTasks(TaskList *taskList)
+{
+    vector<MainTask*> t1 = taskList->getAllTasks();
+    for (int i = 0; i < t1.size(); i++){
+        string taskDescription = t1[i]->getDescription();
+        string taskPriority = to_string(t1[i]->getPriority());
+        string taskDeadline ;
+
+        cout << i+1 << ".\t" << t1[i]->getName() << '\t';
+
+        if(taskPriority == to_string(INFINITY)){
+            taskPriority = "No priority";
+        }
+        cout << "Task priority: " << taskPriority << '\t';
+
+        if(t1[i]->getDdl() == 0){
+            
+            taskDeadline = "No deadline";
+        } else {
+            taskDeadline = taskDeadline.substr(0, taskDeadline.size() - 1);
+        }
+        cout << "Task deadline: " << taskDeadline << endl;
+
+        if(taskDescription == ""){
+            taskDescription = "No description";
+        }
+        cout << "Task description: " << taskDescription << endl;
+
+            vector<SubTask*> sub = t1[i]->getAllSubtasks();
+            for (int j = 0; j < sub.size(); j++){
+                string subtaskPriority = to_string(sub[j]->getPriority());
+
+                cout << '\t' << j+1 << ". Subtask name: " << sub[j]->getName() << '\t';
+
+                if (subtaskPriority == to_string(INFINITY)){
+                    subtaskPriority = "No priority";
+                }
+                cout << "Priority: " << subtaskPriority << endl;
+
+                cout << '\t'<<"Subtask description: " << sub[j]->getDescription() << endl;
+            }
+    }
+}
 
 void taskToAdd(TaskList *taskList)
 {
