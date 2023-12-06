@@ -20,5 +20,6 @@ void* updateDdlHelper(void*);
 time_t _addRecurring(time_t oldDeadLine, uint recurringDay);
 int getUserInputInteger();
 time_t getUserInputDdl();
+int getUserInputIntegerForMinute();
     
 #endif

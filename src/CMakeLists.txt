@@ -20,6 +20,7 @@ add_executable(Testmain2
 )
 target_link_libraries(TaskPro.out ${GTEST_ESSENTIALS})
 target_link_libraries(TaskPro.out taskLibrary)
+target_link_libraries(TaskPro.out pthread)
 target_link_libraries(Testmain2 ${GTEST_ESSENTIALS})
 target_link_libraries(Testmain2 taskLibrary)
 target_link_libraries(Testmain2 pthread)
