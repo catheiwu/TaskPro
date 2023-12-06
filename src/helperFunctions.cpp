@@ -5,7 +5,9 @@
 #include "../include/helperFunctions.h"
 #include <ctime>
 #include <unistd.h>
-
+#include <cstdlib>
+#include <cstring>
+#define MAX_BUFF_SIZE 100
 using namespace std;
 
 // void displayTasks(TaskList *taskList)
@@ -95,4 +97,23 @@ time_t _addRecurring(time_t oldDeadLine, uint recurringDay)
     // std::cout << "in _addRecurring " << std::endl;
     time_t newDdl = oldDeadLine + (ONE_DAY * recurringDay);
     return newDdl;
+}
+
+
+//return the user input integer if the int > 0
+// if not return -1
+int getUserInput()
+{
+    char buff[MAX_BUFF_SIZE] = {};
+    int choice = 0;
+    memset(buff, 0, sizeof(buff));
+    std::cin >> buff;
+    char *p;  
+    choice = strtol(buff, &p, 0);
+    if(choice<=0)
+    {
+        return -1;
+    }
+    return choice;
+    
 }
