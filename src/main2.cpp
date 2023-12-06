@@ -12,7 +12,8 @@ int main()
 {
     while(true)
     {
-        cout<<getUserInputString()<<endl;
+        cout<<getUserInputInteger();
+        cout<< "ho"<<endl;
     }
     TaskList* ts = new TaskList();
     MainTask* mt1 = new MainTask();
