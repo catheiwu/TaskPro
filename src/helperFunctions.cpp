@@ -5,6 +5,7 @@
 #include "../include/helperFunctions.h"
 #include "../include/dfs.h"
 #include <ctime>
+#include <string.h>
 #include <unistd.h>
 #include <cstdlib>
 #include <cstring>
@@ -397,4 +398,36 @@ time_t getUserInputDdl()
     delete Ddl;
 
     return deadline;
+}
+
+
+//return a string, ignore the spaces in the front
+std::string getUserInputString()
+{
+    char buff[MAX_BUFF_SIZE] = {};
+    char buff2[MAX_BUFF_SIZE] = {};
+    memset(buff, 0, sizeof(buff));
+    memset(buff2, 0, sizeof(buff));
+    std::cin >> buff;
+    int j = 0;
+    int i = 0;
+    for(; i<strlen(buff);i++)
+    {
+        if(buff[i] == 32)//space
+        {
+            continue;
+        }
+        else if(buff[i] == '\n')
+        {
+            buff2[j] = '\0';
+            break;
+        }
+        else
+        {
+            buff2[j] = buff[i];
+            j++;
+        }
+    }
+    return std::string(buff2);
+
 }
