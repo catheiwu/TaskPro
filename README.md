@@ -30,7 +30,8 @@
  ![image](https://github.com/cs100/final-project-fmoha020-cwu247-bjian018-xwang571/assets/146904259/810adb7f-0b0d-46e6-b2fd-ff0111ae1f4c)
 
 ## Class Diagram
-![Class Diagram Template (2)](https://github.com/cs100/final-project-fmoha020-cwu247-bjian018-xwang571/assets/89694133/620bcacb-617f-4b66-96d2-f1e0a22d6a84)
+![Class Diagram Template (2)](https://github.com/cs100/final-project-fmoha020-cwu247-bjian018-xwang571/assets/89694133/d4d5edf2-7407-481a-9df1-7dab1cbaed3b)
+
 
 
 
