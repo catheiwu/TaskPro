@@ -19,7 +19,6 @@ void taskToDelete(TaskList*);
 void taskToEdit(TaskList*);
 void subtaskToEdit(MainTask*);
 void sortTasks(TaskList*);
-// void* updateDdlHelper(void*);
 time_t _addRecurring(time_t oldDeadLine, uint recurringDay);
 int getUserInputInteger();
 time_t getUserInputDdl();
