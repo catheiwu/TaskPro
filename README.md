@@ -31,6 +31,8 @@
 
 ## Class Diagram
 ![image](https://github.com/cs100/final-project-fmoha020-cwu247-bjian018-xwang571/assets/146904259/86092ccc-2e11-4220-9487-7bc6693ef8ee)
+![Class Diagram Template (2)](https://github.com/cs100/final-project-fmoha020-cwu247-bjian018-xwang571/assets/89694133/620bcacb-617f-4b66-96d2-f1e0a22d6a84)
+
 
 
 
