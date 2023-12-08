@@ -254,7 +254,7 @@ void taskToEdit(TaskList *taskList)
     }
     int taskIndex;
     displayTasks(taskList);
-    cin.ignore();
+    //cin.ignore();
     cout << "Enter the number of which task would you like to edit: \n";
     taskIndex = getUserInputInteger();
     while (taskIndex == -1 || taskIndex > taskList->getAllTasks().size())
@@ -535,7 +535,7 @@ time_t getUserInputDdl()
     cout << "Please enter hour of deadline (use a number 0-23)" << endl;
 
     hour = getUserInputIntegerForMinute();
-    while (hour == -1 || day > 23)
+    while (hour == -1 || hour >= 23)
     {
 
         cout << "hour must be between 0 and 23" << endl;
