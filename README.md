@@ -58,7 +58,7 @@ For the Deadline, Description, and Priority classes we followed the single respo
  ## Installation/Usage
 1) Clone this GitHub repository by copying the hyperlink from the green "code" button on the upper right (code-->local-->https) into the following command:
 ```
-    git clone --recursive &lt;Repo URL&gt;
+    git clone --recursive https://github.com/cs100/final-project-fmoha020-cwu247-bjian018-xwang571.git
   ```
 3) Once you have this repo cloned, type these commands into the terminal in the following order:
 ```
