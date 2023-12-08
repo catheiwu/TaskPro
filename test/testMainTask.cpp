@@ -87,8 +87,26 @@ TEST(MainTaskTests, testGetDdl)
     EXPECT_EQ(timep, task.getDdl());
 }
 
-// TEST(MainTaskTests, testGetAllSubtasks)
-// {
+TEST(MainTaskTests, sortSubtasks)
+{
+    MainTask* subTaskList = new MainTask();
+    SubTask *task1 = new SubTask();
+    SubTask *task2 = new SubTask();
+    SubTask *task3 = new SubTask();
 
-// }
+    task1->editPriority(3);
+    task2->editPriority(2);
+    task3->editPriority(1);
+
+    subTaskList->addSubtask(task1);
+    subTaskList->addSubtask(task2);
+    subTaskList->addSubtask(task3);
+    subTaskList->sort();
+
+    EXPECT_EQ(subTaskList->getAllSubtasks().at(0)->getPriority(), 1);
+    EXPECT_EQ(subTaskList->getAllSubtasks().at(1)->getPriority(), 2);
+    EXPECT_EQ(subTaskList->getAllSubtasks().at(2)->getPriority(), 3);
+
+
+}
 
