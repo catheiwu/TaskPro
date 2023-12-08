@@ -56,7 +56,8 @@ int main()
             exportTaskListToTxt(tl, file);
         }
         else if (userChoice == 7){
-            cout << "Quit\n";
+            cout << "Quited\n";
+            delete tl;
             return 0;
         }
         else
