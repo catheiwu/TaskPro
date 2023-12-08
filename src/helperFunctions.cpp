@@ -453,10 +453,15 @@ void subtaskToEdit(MainTask *maintask,TaskList *tasklist)
     else if (taskEditNum == 3)
     {
         cout << "What priority should this subtask be?\n";
-        int newPriority;
+        uint newPriority;
         newPriority = getUserInputInteger();
-        while (newPriority == -1 || newPriority > INFINITY)
+        while (newPriority == -1 || newPriority >= INFINITY)
         {
+            if(newPriority == -2)
+            {
+                newPriority = INFINITY;
+                break;
+            }
             cout << "Invalid choice. Please enter a valid number for priority.\n";
         }
         maintask->getAllSubtasks().at(taskIndex - 1)->editPriority(newPriority);
