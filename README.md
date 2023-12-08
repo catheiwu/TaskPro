@@ -66,5 +66,5 @@ For the Deadline, Description, and Priority classes we followed the single respo
 5) Use this task manager to add, delete, and edit tasks in your upcoming schedule. Additional features include creating subtasks within a task and sorting lists of tasks by their priorities or deadlines. A display feature allows users to view their list of tasks.
    
 ## Tesing
-We used gtest to test main.cpp, MainTask.cpp, Task.cpp, and TaskList.cpp
+We used gtest to test main.cpp, MainTask.cpp, Task.cpp, and TaskList.cpp. Additionally, we also used CI testing using GitHub Actions.
 
