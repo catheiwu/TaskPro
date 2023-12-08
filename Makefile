@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /class/classes/cwu247/final-project-fmoha020-cwu247-bjian018-xwang571
+CMAKE_SOURCE_DIR = /data/class/classes/cwu247/final-project-fmoha020-cwu247-bjian018-xwang571
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /data/class/classes/cwu247/final-project-fmoha020-cwu247-bjian018-xwang571
+CMAKE_BINARY_DIR = /class/classes/cwu247/final-project-fmoha020-cwu247-bjian018-xwang571
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,9 +132,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/class/classes/cwu247/final-project-fmoha020-cwu247-bjian018-xwang571/CMakeFiles /data/class/classes/cwu247/final-project-fmoha020-cwu247-bjian018-xwang571//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /class/classes/cwu247/final-project-fmoha020-cwu247-bjian018-xwang571/CMakeFiles /class/classes/cwu247/final-project-fmoha020-cwu247-bjian018-xwang571//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/class/classes/cwu247/final-project-fmoha020-cwu247-bjian018-xwang571/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /class/classes/cwu247/final-project-fmoha020-cwu247-bjian018-xwang571/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
