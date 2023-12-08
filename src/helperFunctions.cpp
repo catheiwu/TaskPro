@@ -90,6 +90,7 @@ void displayTasks(TaskList *taskList)
 
             cout << '\t' << "Subtask description: " << sub[j]->getDescription() << endl;
         }
+        cout << endl;
     }
     cout << endl
          << endl
@@ -197,8 +198,8 @@ void subtaskToAdd(MainTask *maintask)
 
     desc = getUserInputString();   
     newSubtask->editDescription(desc);
-
     maintask->addSubtask(newSubtask);
+    printMainMenu();
 }
 
 void taskToDelete(TaskList *taskList)
@@ -211,20 +212,36 @@ void taskToDelete(TaskList *taskList)
     cout << endl
          << endl;
     int taskIndex;
-    displayTasks(taskList);
-    cout << "Enter the index of the task you want to delete: " << endl;
-    taskIndex = getUserInputInteger();
-
-    while (taskIndex == -1 || taskIndex > taskList->getAllTasks().size())
-    {
-
-        // cout << "Enter non-zero valid index" << endl;
-        taskIndex = getUserInputInteger();
+    int confirmDelete;
+    cout << "Are you sure you want to delete a task?\n";
+    cout << "1. yes\n" << "2. no\n";
+    confirmDelete = getUserInputInteger();
+    while (confirmDelete != 1 && confirmDelete != 2){
+        cout << "Invalid input. Input must be 1 or 2\n";
+        confirmDelete == getUserInputInteger();
     }
+    if (confirmDelete == 1){
+        cout << endl << endl;
+        displayTasks(taskList);
+        cout << "Enter the index of the task you want to delete: " << endl;
+        taskIndex = getUserInputInteger();
 
-    taskList->deleteTask(taskIndex);
-    cout << "Task deleted successfully!\n\n";
-    printMainMenu();
+        while (taskIndex == -1 || taskIndex > taskList->getAllTasks().size())
+        {
+
+            // cout << "Enter non-zero valid index" << endl;
+            taskIndex = getUserInputInteger();
+        }
+
+        taskList->deleteTask(taskIndex);
+        cout << "Task deleted successfully!\n\n";
+        printMainMenu();
+    
+    } else if (confirmDelete == 2){
+        printMainMenu();
+        return;
+    }
+   
 }
 
 
