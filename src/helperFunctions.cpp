@@ -131,7 +131,7 @@ void taskToAdd(TaskList *taskList)
             break;
         }
 
-        cout << "Priority must be greater than 0" << endl;
+        cout << "Priority must be an integer greater than 0:" << endl;
         priority = getUserInputInteger();
     }
     if(priority != -2){
@@ -148,9 +148,8 @@ void taskToAdd(TaskList *taskList)
     int choice;
     choice = getUserInputInteger();
 
-    while (choice == -1)
+    while (choice != 1 && choice != 2)
     {
-
         cout << "Choice must be either 1 or 2" << endl;
         choice = getUserInputInteger();
     }
@@ -203,7 +202,7 @@ void subtaskToAdd(MainTask *maintask)
             break;
         }
 
-        cout << "Priority must be greater than 0" << endl;
+        cout << "Priority must be an integer greater than 0:" << endl;
         priority = getUserInputInteger();
     }
     if(priority != -2){
@@ -522,6 +521,10 @@ int getUserInputInteger()
     }
     char *p;
     choice = strtol(buff, &p, 0);
+    if(*p !=0 && *p !='\n')//not all number
+    {
+        return -1;
+    }
     if (choice <= 0)
     {
         return -1;
@@ -529,6 +532,7 @@ int getUserInputInteger()
     return choice;
 }
 
+//return -1 when input a thing not a number
 int getUserInputIntegerForMinute()
 {
     char buff[MAX_BUFF_SIZE] = {};
@@ -537,6 +541,10 @@ int getUserInputIntegerForMinute()
     fgets(buff, MAX_BUFF_SIZE-1 , stdin);
     char *p;
     choice = strtol(buff, &p, 0);
+    if(*p !=0 && *p !='\n')//not all number
+    {
+        return -1;
+    }
     if (choice < 0)
     {
         return -1;
@@ -587,7 +595,7 @@ time_t getUserInputDdl()
     while (minute == -1 || minute > 60)
     {
 
-        cout << "minute must be between 1 and 60" << endl;
+        cout << "minute must be between 0 and 60" << endl;
         minute = getUserInputIntegerForMinute();
     }
     // --minute;
