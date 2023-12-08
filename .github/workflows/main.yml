@@ -1,0 +1,43 @@
+name: CI_FOR_MAIN
+on:
+  push:
+  pull_request:
+    branches: [master]
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          # touch test_result.txt
+          cd build
+          cmake ..
+          make
+          ./bin/RunAllTest
+          # ./tests/runAllTests | grep -q FAILED > test_result.txt
+          # f=$(grep -c 'FAILED' test_result.txt)
+          # echo "isFail=$f" >> $GITHUB_ENV
+          # echo "done"
+
+      # - name: CheckIfFails
+      #   if: ${{ env.isFail }} != 0
+      #   uses: actions/github-script@v3
+      #   with:
+      #     script: |
+      #         core.setFailed('${{ env.isFail }} tests faile')
+
+   
