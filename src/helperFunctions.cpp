@@ -496,6 +496,7 @@ void sortTasks(TaskList *taskList)
     {
         taskList->sort(2);
     }
+    printMainMenu();
 }
 
 // get the old one ddl and return the newone
