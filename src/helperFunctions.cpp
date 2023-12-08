@@ -213,6 +213,7 @@ void subtaskToAdd(MainTask *maintask)
     desc = getUserInputString();   
     newSubtask->editDescription(desc);
     maintask->addSubtask(newSubtask);
+    cout << endl << endl;
     printMainMenu();
 }
 
@@ -232,13 +233,17 @@ void taskToDelete(TaskList *taskList)
     confirmDelete = getUserInputInteger();
     while (confirmDelete != 1 && confirmDelete != 2){
         cout << "Invalid input. Input must be 1 or 2\n";
-        confirmDelete == getUserInputInteger();
+        confirmDelete = getUserInputInteger();
     }
     if (confirmDelete == 1){
         cout << endl << endl;
         displayTasks(taskList);
         cout << "Enter the index of the task you want to delete: " << endl;
         taskIndex = getUserInputInteger();
+        while (taskIndex < 0 || taskIndex > taskList->getAllTasks().size()){
+            cout << "Invalid input. Please try again\n";
+            taskIndex = getUserInputInteger();
+        }
 
         while (taskIndex == -1 || taskIndex > taskList->getAllTasks().size())
         {
@@ -268,12 +273,12 @@ void taskToEdit(TaskList *taskList)
     }
     int taskIndex;
     displayTasks(taskList);
-    cin.ignore();
+    //cin.ignore();
     cout << "Enter the number of which task would you like to edit: \n";
     taskIndex = getUserInputInteger();
     while (taskIndex == -1 || taskIndex > taskList->getAllTasks().size())
     {
-        cout << "Task number must be greater than 0" << endl;
+        cout << "Task index not found!" << endl;
         taskIndex = getUserInputInteger();
     }
 
@@ -316,6 +321,8 @@ void taskToEdit(TaskList *taskList)
         cin.ignore();
         getline(cin, newDescription);
         taskList->getAllTasks().at(taskIndex - 1)->editDescription(newDescription);
+        cout << endl << endl;
+        printMainMenu();
     }
     else if (taskEditNum == 3)
     {
@@ -327,12 +334,16 @@ void taskToEdit(TaskList *taskList)
             cout << "Invalid choice. Please enter a valid number for priority.\n";
         }
         taskList->getAllTasks().at(taskIndex - 1)->editPriority(newPriority);
+        cout << endl << endl;
+        printMainMenu();
     }
     else if (taskEditNum == 4)
     {
         cout << "What do you want the new deadline to be?\n";
         time_t newTaskDeadLine = getUserInputDdl();
         taskList->getAllTasks().at(taskIndex - 1)->editDdl(newTaskDeadLine);
+        cout << endl << endl;
+        printMainMenu();
     }
     else if (taskEditNum == 5)
     {
@@ -340,11 +351,11 @@ void taskToEdit(TaskList *taskList)
     }
     else if (taskEditNum == 6)
     {
-        subtaskToEdit(taskList->getAllTasks().at(taskIndex - 1));
+        subtaskToEdit(taskList->getAllTasks().at(taskIndex - 1),taskList);
     }
     else if (taskEditNum == 7)
     {
-        subtaskToDelete(taskList->getAllTasks().at(taskIndex - 1));
+        subtaskToDelete(taskList->getAllTasks().at(taskIndex - 1),taskList);
     }
     return;
     cout << endl
@@ -352,11 +363,13 @@ void taskToEdit(TaskList *taskList)
     printMainMenu();
 }
 
-void subtaskToDelete(MainTask* maintask)
+void subtaskToDelete(MainTask *maintask,TaskList *tasklist)
 {
     if(maintask->getAllSubtasks().size() == 0)
     {
         cout << "No subtask to delete" << endl;
+        cout << endl << endl;
+        printMainMenu();
         return;
 
     }
@@ -369,8 +382,8 @@ void subtaskToDelete(MainTask* maintask)
 
     while (taskIndex == -1 || taskIndex > maintask->getAllSubtasks().size())
     {
-
-        cout << "Enter a valid index" << endl;
+        displayTasks(tasklist);
+        cout << "Enter a valid index again:" << endl;
         taskIndex = getUserInputInteger();
     }
 
@@ -379,12 +392,14 @@ void subtaskToDelete(MainTask* maintask)
     printMainMenu();
 
 }
-void subtaskToEdit(MainTask *maintask)
+void subtaskToEdit(MainTask *maintask,TaskList *tasklist)
 {
     // SubTask* sb = new SubTask ();
     if (maintask->getAllSubtasks().size() == 0)
     {
         cout << "There is no subtask added " << endl;
+        cout << endl << endl;
+        printMainMenu();
         return;
     }
     int taskIndex;
@@ -394,7 +409,8 @@ void subtaskToEdit(MainTask *maintask)
     taskIndex = getUserInputInteger();
     while (taskIndex == -1 || taskIndex > maintask->getAllSubtasks().size())
     {
-        cout << "no index found" << endl;
+        displayTasks(tasklist);
+        cout << "No index found. Please enter a valid number again:" << endl;
         taskIndex = getUserInputInteger();
     }
     cout << "Enter 1 - Edit subtask name." << endl;
@@ -419,6 +435,8 @@ void subtaskToEdit(MainTask *maintask)
         }
 
         maintask->getAllSubtasks().at(taskIndex - 1)->editName(taskName);
+        cout << endl << endl;
+        printMainMenu();
     }
     else if (taskEditNum == 2)
     {
@@ -427,6 +445,8 @@ void subtaskToEdit(MainTask *maintask)
         cin.ignore();
         getline(cin, newDescription);
         maintask->getAllSubtasks().at(taskIndex - 1)->editDescription(newDescription);
+        cout << endl << endl;
+        printMainMenu();
     }
     else if (taskEditNum == 3)
     {
@@ -438,6 +458,8 @@ void subtaskToEdit(MainTask *maintask)
             cout << "Invalid choice. Please enter a valid number for priority.\n";
         }
         maintask->getAllSubtasks().at(taskIndex - 1)->editPriority(newPriority);
+        cout << endl << endl;
+        printMainMenu();
     }
 }
 
@@ -549,7 +571,7 @@ time_t getUserInputDdl()
     cout << "Please enter hour of deadline (use a number 0-23)" << endl;
 
     hour = getUserInputIntegerForMinute();
-    while (hour == -1 || day > 23)
+    while (hour == -1 || hour >= 23)
     {
 
         cout << "hour must be between 0 and 23" << endl;
