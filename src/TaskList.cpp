@@ -38,29 +38,34 @@ int TaskList::sort(int userChoice)
     { // sort by priority
 
 
-        for (int i = 0; i < allTasks.size() - 1; i++)
+        for (int i = 0; i < static_cast<int>(allTasks.size()) - 1; i++)
         {
+            // cout << "i = " << i << endl;
             allTasks[i]->sort();
-            for (int j = 0; j < allTasks.size() - i - 1; j++)
+            // cout << "done sort for subtasks i = " << i << endl;
+
+            for (int j = 0; j < static_cast<int>(allTasks.size()) - i - 1; j++)
             {
+                // cout << "in inner for loop j = " << j << endl;
                 if (allTasks[j]->getPriority() > allTasks[j + 1]->getPriority())
                 {
-                    MainTask *temp = allTasks[j];
+                    MainTask* temp = allTasks[j];
                     allTasks[j] = allTasks[j + 1];
                     allTasks[j + 1] = temp;
                 }
             }
         }
+        // cout << "out of sort loops"<< endl;
 
-        allTasks[allTasks.size() - 1]->sort();
+        allTasks[static_cast<int>(allTasks.size()) - 1 - 1]->sort();
         return 0;
     }
     else if (userChoice == 2)
     { // sort by deadline
 
-        for (int i = 0; i < allTasks.size() - 1; i++)
+        for (int i = 0; i < static_cast<int>(allTasks.size()) - 1; i++)
         {
-            for (int j = 0; j < allTasks.size() - i - 1; j++)
+            for (int j = 0; j < static_cast<int>(allTasks.size()) - i - 1; j++)
             {
                 if (allTasks[j]->getDdl() > allTasks[j + 1]->getDdl())
                 {
