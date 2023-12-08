@@ -11,6 +11,7 @@ private:
 public:
 
     SubTask(/* args */);
+    SubTask(string Name, string Description, uint Priority);
     ~SubTask();
 };
 
