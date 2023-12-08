@@ -6,6 +6,7 @@ using namespace std;
 
 int main()
 {
+    string file = "../LIST_OF_TASKS.txt";
     TaskList* tl = new TaskList();
     printMainMenu();
     
@@ -13,7 +14,7 @@ int main()
     while (true)
     {
 
-        cout << "Enter your choice (number 1-6): ";
+        cout << "Enter your choice (number 1-7): ";
          int userChoice  = getUserInputInteger();
 
         if (userChoice == 1)
@@ -45,6 +46,10 @@ int main()
         }
         else if (userChoice == 6)
         {
+            cout << "Export tasks into txt file\n";
+            exportTaskListToTxt(tl, file);
+        }
+        else if (userChoice == 7){
             cout << "Quit\n";
             return 0;
         }

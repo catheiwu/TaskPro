@@ -23,6 +23,7 @@ public:
     void editName(string newName);
     void editDescription(string newDescription);
     void editPriority( uint newPriority);
+    
 };
 
 #endif

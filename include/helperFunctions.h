@@ -24,5 +24,6 @@ int getUserInputInteger();
 time_t getUserInputDdl();
 int getUserInputIntegerForMinute();
 std::string getUserInputString();
+void exportTaskListToTxt(TaskList *taskList, const std::string &file_path);
     
 #endif

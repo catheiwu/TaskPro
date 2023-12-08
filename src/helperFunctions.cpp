@@ -10,6 +10,8 @@
 #include <unistd.h>
 #include <cstdlib>
 #include <cstring>
+#include <fstream> 
+
 using namespace std;
 
 void printMainMenu()
@@ -25,7 +27,8 @@ void printMainMenu()
     cout << "3) Delete tasks\n";
     cout << "4) Edit tasks\n";
     cout << "5) Sort tasks\n";
-    cout << "6) Quit\n";
+    cout << "6) Export tasks into txt file\n";
+    cout << "7) Quit\n";
     cout << "other: print main menu\n";
     cout << "                       \n";
 }
@@ -499,7 +502,7 @@ void sortTasks(TaskList *taskList)
 // get the old one ddl and return the newone
 time_t _addRecurring(time_t oldDeadLine, uint recurringDay)
 {
-    // std::cout << "in _addRecurring " << std::endl;
+    // cout << "in _addRecurring " << endl;
     time_t newDdl = oldDeadLine + (ONE_DAY * recurringDay);
     return newDdl;
 }
@@ -624,7 +627,7 @@ time_t getUserInputDdl()
 }
 
 // return a string, ignore the spaces in the front
-std::string getUserInputString()
+string getUserInputString()
 {
     char buff[MAX_BUFF_SIZE] = {};
     char buff2[MAX_BUFF_SIZE] = {};
@@ -652,7 +655,53 @@ std::string getUserInputString()
     {
         return "";
     }
-    return std::string(buff2);
-    return std::string(buff2);
+    return string(buff2);
+    return string(buff2);
 
+}
+
+void exportTaskListToTxt(TaskList *taskList, const string &file_path)
+{
+    ofstream outputFile(file_path);
+
+    if (!outputFile.is_open())
+    {
+        cerr << "Error opening file for export: " << file_path << endl;
+        return;
+    }
+
+    vector<MainTask *> tasks = taskList->getAllTasks();
+
+    for (int i = 0; i < tasks.size(); i++)
+    {
+        outputFile << "Task " << i + 1 << ": " << tasks[i]->getName() << endl;
+        outputFile << "Priority: " << tasks[i]->getPriority() << endl;
+        outputFile << "Description: " << tasks[i]->getDescription() << endl;
+
+        time_t ddl = tasks[i]->getDdl();
+        if (ddl != 0)
+        {
+            outputFile << "Deadline: " << ctime(&ddl);
+        }
+        else
+        {
+            outputFile << "No Deadline" << endl;
+        }
+
+        outputFile << "Subtasks:" << endl;
+        vector<SubTask *> subtasks = tasks[i]->getAllSubtasks();
+
+        for (int j = 0; j < subtasks.size(); j++)
+        {
+            outputFile << "\tSubtask " << j + 1 << ": " << subtasks[j]->getName() << endl;
+            outputFile << "\tPriority: " << subtasks[j]->getPriority() << endl;
+            outputFile << "\tDescription: " << subtasks[j]->getDescription() << endl;
+        }
+
+        outputFile << endl;
+    }
+
+    cout << "Task list exported to " << file_path << " successfully!" << endl;
+    outputFile.close();
+    printMainMenu();
 }
