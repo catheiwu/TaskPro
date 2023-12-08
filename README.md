@@ -33,11 +33,13 @@
 ## Class Diagram
 ![Class Diagram Template (2)](https://github.com/cs100/final-project-fmoha020-cwu247-bjian018-xwang571/assets/146904259/d28424c5-45c6-452b-8281-98de62a60dbc)
 
+The 'Tasklist' class serves as a container or manager for tasks. It includes methods such as adding, removing, and retrieving tasks within the list. Its association with the 'Task' class is composition as it manages instances of tasks.
 
+The 'Task' class represents a generic task in the system with attributes such as a task name, description, and priority. It's inherited by two subclasses, 'Subtask' and 'MainTask'.
 
+The 'Subtask' class is a subclass of the 'Task' class, meaning it inherits properties and behaviors from the 'Task' class. 
 
-
-
+The 'MainTask' is another subclass of the 'Task' class, representing larger, overarching tasks that may be composed of subtasks.
 
 ## Screen Layouts
 <img width="245" alt="Welcome screen" src="https://github.com/cs100/final-project-fmoha020-cwu247-bjian018-xwang571/assets/121990200/9482a808-415c-455d-a2d0-b2f6e73ab21d">
