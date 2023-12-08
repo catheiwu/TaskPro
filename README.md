@@ -78,5 +78,5 @@ Or you can get the source from our release.
 ### Option 2: Download Executable File
 In the [release](https://github.com/cs100/final-project-fmoha020-cwu247-bjian018-xwang571/releases/tag/1.0.0) we've compiled an executable file for you! If you use Linux, simply download the TaskPro.out and run it.
 ## Tesing
-We used gtest to test main.cpp, MainTask.cpp, Task.cpp, and TaskList.cpp. Additionally, we also used CI testing using GitHub Actions.
+We used gtest to test all of our classes: MainTask.cpp, Task.cpp, and TaskList.cpp. Additionally, we also used Continuous integration (CI) by GitHub Actions.
 
