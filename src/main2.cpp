@@ -7,6 +7,8 @@
 #include <ctime>
 #include <unistd.h>
 
+
+// valgrind --leak-check=full ./bin/Testmain2
 using namespace std;
 int main()
 {
@@ -44,11 +46,11 @@ int main()
     ts->addTask(mt3);
     ts->addTask(mt4);
     cout<<"at first"<<endl;
-    // displayTasks(ts);
+    displayTasks(ts);
     cout<<"delete some"<<endl;
     ts->deleteTask(3);
     mt1->deleteSubtask(4);
-    // displayTasks(ts);
+    displayTasks(ts);
     ts->sort(1);
     ts->sort(2);
 
