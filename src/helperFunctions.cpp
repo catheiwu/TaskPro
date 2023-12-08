@@ -39,7 +39,7 @@ void displayTasks(TaskList *taskList)
         string taskPriority = to_string(t1[i]->getPriority());
         string taskDeadline;
 
-        cout << i + 1 << ".\t" << t1[i]->getName() << '\t';
+        cout << i + 1 << ". Task name: " << t1[i]->getName() << '\t';
 
         if (taskPriority == to_string(INFINITY))
         {
