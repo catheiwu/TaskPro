@@ -203,7 +203,7 @@ void subtaskToAdd(MainTask *maintask)
         cout << "Priority must be greater than 0" << endl;
         priority = getUserInputInteger();
     }
-    if(priority == -2){
+    if(priority != -2){
         newSubtask->editPriority(priority);
     }
 
