@@ -56,7 +56,7 @@ For the Deadline, Description, and Priority classes we followed the single respo
  ## Screenshots
  > Screenshots of the input/output after running your application
  ## Installation/Usage
- ### Build From source.
+ ### Option1: Build From source.
 1) Clone this GitHub repository by copying the hyperlink from the green "code" button on the upper right (code-->local-->https) into the following command:
 ```
     git clone --recursive https://github.com/cs100/final-project-fmoha020-cwu247-bjian018-xwang571.git
@@ -74,8 +74,8 @@ Or you can get the source from our release.
     ./bin/TaskPro.out
 ```
 4) Use this task manager to add, delete, and edit tasks in your upcoming schedule. Additional features include creating subtasks within a task and sorting lists of tasks by their priorities or deadlines. A display feature allows users to view their list of tasks.
-### Download Executable File
-In the [release](https://github.com/cs100/final-project-fmoha020-cwu247-bjian018-xwang571/releases/tag/1.0.0) we've compiled a executable file for you! If you use Linux, simply download the TaskPro.out and run it.
+### Option2: Download Executable File
+In the [release](https://github.com/cs100/final-project-fmoha020-cwu247-bjian018-xwang571/releases/tag/1.0.0) we've compiled an executable file for you! If you use Linux, simply download the TaskPro.out and run it.
 ## Tesing
 We used gtest to test main.cpp, MainTask.cpp, Task.cpp, and TaskList.cpp. Additionally, we also used CI testing using GitHub Actions.
 
