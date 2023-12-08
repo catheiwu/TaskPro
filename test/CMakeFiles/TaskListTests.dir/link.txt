@@ -1,0 +1,1 @@
+/usr/bin/c++  -std=c++1y CMakeFiles/TaskListTests.dir/testTaskList.cpp.o CMakeFiles/TaskListTests.dir/hmain.cpp.o -o ../bin/TaskListTests  ../lib/libgmock.a ../lib/libgtest.a ../lib/libgtest_main.a ../lib/libtaskLibrary.a ../lib/libgtest.a -pthread 
