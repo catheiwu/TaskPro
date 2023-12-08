@@ -164,12 +164,29 @@ void taskToAdd(TaskList *taskList)
     printMainMenu();
 }
 
-void subtaskToAdd(MainTask *maintask)
-{
+  }
+
+void subtaskToAdd(TaskList* taskList) {
+    if(taskList->getAllTasks().size()==0)
+    {
+        cout << "There is no Mian task added " << endl;
+        return;
+
+    }
+
+    cout << "Which task would you like to have a subtask for" << endl;
+    int taskIndex = getUserInputInteger();
+
+    while(taskIndex == -1||taskIndex > taskList->getAllTasks().size()) {
+
+        cout << "There is no task at that index" << endl;
+        taskIndex = getUserInputInteger();
+    }
 
     string subtaskName;
-    cout << "Enter the new subtask name: ";
-    subtaskName = getUserInputString();
+    cout << "Enter the subtask name: ";
+    cin.ignore(); // To clear the buffer before getline
+    getline(cin, subtaskName);
 
     while (subtaskName == "")
     {
@@ -239,13 +256,15 @@ void taskToEdit(TaskList *taskList)
         return;
     }
     int taskIndex;
+    cout << endl << endl;
     displayTasks(taskList);
     cin.ignore();
-    cout << "Enter the number of which task would you like to edit: \n";
+    cout << "Enter the index of which task would you like to edit: \n";
     taskIndex = getUserInputInteger();
     while (taskIndex == -1 || taskIndex > taskList->getAllTasks().size())
     {
         cout << "Task number must be greater than 0" << endl;
+        cout << "Enter the index of which task would you like to edit: \n";
         taskIndex = getUserInputInteger();
     }
 
@@ -318,10 +337,11 @@ void taskToEdit(TaskList *taskList)
     {
         subtaskToDelete(taskList->getAllTasks().at(taskIndex - 1));
     }
-    return;
+
     cout << endl
          << endl;
     printMainMenu();
+    return;
 }
 
 void subtaskToDelete(MainTask* maintask)
@@ -444,6 +464,7 @@ void sortTasks(TaskList *taskList)
     {
         taskList->sort(2);
     }
+     printMainMenu();
 }
 
 // get the old one ddl and return the newone
