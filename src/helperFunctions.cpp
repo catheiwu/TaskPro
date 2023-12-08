@@ -5,6 +5,7 @@
 #include "../include/helperFunctions.h"
 #include "../include/dfs.h"
 #include <ctime>
+#include <stdio.h>
 #include <string.h>
 #include <unistd.h>
 #include <cstdlib>
@@ -127,9 +128,7 @@ void taskToAdd(TaskList *taskList)
 
     string desc; // prompt for task description
     cout << "Enter description for task" << endl;
-
-    cin.ignore();
-    getline(cin, desc);
+    desc = getUserInputString();
     newtask->editDescription(desc);
 
     cout << "Task Deadline: Enter 1 if task has no deadline, Enter 2 to enter deadline for this task" << endl; // prompt for task deadline
@@ -174,9 +173,8 @@ void subtaskToAdd(MainTask *maintask)
     while (subtaskName == "")
     {
 
-        cout << "Nothing entered. Please enter valid task name: " << endl;
-        cin >> ws;
-        getline(cin, subtaskName);
+        cout << "Nothing entered. Please enter valid subtask name: " << endl;
+        subtaskName = getUserInputString();
     }
 
     SubTask *newSubtask = new SubTask();
@@ -197,8 +195,7 @@ void subtaskToAdd(MainTask *maintask)
     string desc; // prompt for task description
     cout << "Enter description for subtask" << endl;
 
-    cin.ignore();
-    getline(cin, desc);
+    desc = getUserInputString();   
     newSubtask->editDescription(desc);
 
     maintask->addSubtask(newSubtask);
@@ -451,7 +448,7 @@ int getUserInputInteger()
     char buff[MAX_BUFF_SIZE] = {};
     int choice = 0;
     memset(buff, 0, sizeof(buff));
-    std::cin >> buff;
+    fgets(buff, MAX_BUFF_SIZE-1 , stdin);
     char *p;
     choice = strtol(buff, &p, 0);
     if (choice <= 0)
@@ -466,7 +463,7 @@ int getUserInputIntegerForMinute()
     char buff[MAX_BUFF_SIZE] = {};
     int choice = 0;
     memset(buff, 0, sizeof(buff));
-    std::cin >> buff;
+    fgets(buff, MAX_BUFF_SIZE-1 , stdin);
     char *p;
     choice = strtol(buff, &p, 0);
     if (choice < 0)
@@ -565,16 +562,13 @@ std::string getUserInputString()
     char buff2[MAX_BUFF_SIZE] = {};
     memset(buff, 0, sizeof(buff));
     memset(buff2, 0, sizeof(buff));
-    std::cin >> buff;
+    fgets(buff, MAX_BUFF_SIZE-1 , stdin);
     int j = 0;
     int i = 0;
+    for(; i < strlen(buff) && buff[i] == ' '; i++);
     for (; i < strlen(buff); i++)
     {
-        if (buff[i] == 32) // space
-        {
-            continue;
-        }
-        else if (buff[i] == '\n')
+        if (buff[i] == '\n')
         {
             buff2[j] = '\0';
             j++;
