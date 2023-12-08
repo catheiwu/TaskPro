@@ -3,6 +3,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/bin")
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/lib")
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -O0 -g -Wall")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 find_package(Threads REQUIRED)
 
 add_library(taskLibrary
@@ -19,7 +20,7 @@ add_executable(TaskPro.out
 add_executable(Testmain2
   main2.cpp
 )
-target_link_libraries(TaskPro.out ${GTEST_ESSENTIALS})
+target_link_libraries(TaskPro.out ${GTEST_ESSENTIALS} ${CMAKE_CXX_FLAGS_RELEASE})
 target_link_libraries(TaskPro.out taskLibrary)
 target_link_libraries(TaskPro.out pthread)
 target_link_libraries(Testmain2 ${GTEST_ESSENTIALS} ${CMAKE_C_FLAGS_DEBUG})
