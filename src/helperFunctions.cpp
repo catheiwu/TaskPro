@@ -206,6 +206,11 @@ void subtaskToAdd(MainTask *maintask)
 
 void taskToDelete(TaskList *taskList)
 {
+    if (taskList->getAllTasks().size() == 0)
+    {
+        cout << "There are no tasks to delete. " << endl;
+        return;
+    }
     cout << endl
          << endl;
     int taskIndex;
@@ -411,6 +416,11 @@ void subtaskToEdit(MainTask *maintask)
 void sortTasks(TaskList *taskList)
 {
 
+    if (taskList->getAllTasks().size() == 0)
+    {
+        cout << "There are no tasks to sort! " << endl;
+        return;
+    }
     int sortChoice;
     cout << endl
          << endl;
