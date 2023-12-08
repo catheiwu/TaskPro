@@ -14,7 +14,7 @@
    Implement features where users can easily delete and add their custom tasks
    Implement a sort feature by highest priority (closest due date)
  
-## Phase II
+
 <!-- 
  > * Create an "Epic" (note) for each feature. Place these epics in the `Product Backlog` column
  > * Complete your first *sprint planning* meeting to plan out the next 7 days of work.
