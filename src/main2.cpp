@@ -8,7 +8,7 @@
 #include <unistd.h>
 
 
-// valgrind --leak-check=full ./bin/Testmain2
+// valgrind --leak-check=full ./bin/ValgrindTest
 using namespace std;
 int main()
 {

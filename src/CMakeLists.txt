@@ -17,12 +17,12 @@ add_library(taskLibrary
 add_executable(TaskPro.out
   main.cpp
 )
-add_executable(Testmain2
+add_executable(ValgrindTest
   main2.cpp
 )
 target_link_libraries(TaskPro.out ${GTEST_ESSENTIALS} ${CMAKE_CXX_FLAGS_RELEASE})
 target_link_libraries(TaskPro.out taskLibrary)
 target_link_libraries(TaskPro.out pthread)
-target_link_libraries(Testmain2 ${GTEST_ESSENTIALS} ${CMAKE_C_FLAGS_DEBUG})
-target_link_libraries(Testmain2 taskLibrary)
-target_link_libraries(Testmain2 pthread)
+target_link_libraries(ValgrindTest ${GTEST_ESSENTIALS} ${CMAKE_C_FLAGS_DEBUG})
+target_link_libraries(ValgrindTest taskLibrary)
+target_link_libraries(ValgrindTest pthread)
