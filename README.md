@@ -56,7 +56,14 @@ For the Deadline, Description, and Priority classes we followed the single respo
  ## Screenshots
  > Screenshots of the input/output after running your application
  ## Installation/Usage
- > Instructions on installing and running your application
- ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
- 
+1) Clone this GitHub repository onto your local IDE or by using terminal. You can do this by pressing the green button on the top of the page.
+2) Once you have this repo cloned, type these commands into terminal in order.
+     cd build
+     cmake ..
+     make
+     ./bin/TaskPro.out
+3) Then, this program should run! Keep in mind you only have to run  cmake and make once, then you can just run ./bin/TaskPro.out
+   
+## Tesing
+We used gtest to test main.cpp, MainTask.cpp, Task.cpp, and TaskList.cpp
+
