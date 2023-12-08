@@ -59,8 +59,7 @@ void displayTasks(TaskList *taskList)
         }
         
         cout << "Task deadline: " << taskDeadline << "  ";
-
-        t1[i]->updateDdlPassed();
+        
         if (t1[i]->isDdlPassed() == true)
         {
             cout << "Deadline passed!\t";
