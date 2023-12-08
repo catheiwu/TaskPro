@@ -8,6 +8,11 @@ int main()
 {
     string file = "../LIST_OF_TASKS.txt";
     TaskList* tl = new TaskList();
+    int start = tl->updateDdl();
+    if(start == -1)
+    {
+        cout<< "ERROR: LUNCH FAILED! ABORT!"<<endl;
+    }
     printMainMenu();
     
 
