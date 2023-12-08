@@ -13,7 +13,7 @@ int main()
     while (true)
     {
 
-        cout << "Enter your choice (number 1-7): ";
+        cout << "Enter your choice (number 1-6): ";
          int userChoice  = getUserInputInteger();
 
         if (userChoice == 1)
