@@ -58,10 +58,10 @@ For the Deadline, Description, and Priority classes we followed the single respo
  ## Installation/Usage
 1) Clone this GitHub repository onto your local IDE or by using terminal. You can do this by pressing the green button on the top of the page.
 2) Once you have this repo cloned, type these commands into terminal in order.
-     cd build
-     cmake ..
-     make
-     ./bin/TaskPro.out
+     1. cd build
+     2. cmake ..
+     3. make
+     4. ./bin/TaskPro.out
 3) Then, this program should run! Keep in mind you only have to run  cmake and make once, then you can just run ./bin/TaskPro.out
    
 ## Tesing
