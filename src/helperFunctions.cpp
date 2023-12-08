@@ -470,12 +470,17 @@ time_t _addRecurring(time_t oldDeadLine, uint recurringDay)
 
 // return the user input integer if the int > 0
 //  if not return -1
+// return -2 if user input  nothing
 int getUserInputInteger()
 {
     char buff[MAX_BUFF_SIZE] = {};
     int choice = 0;
     memset(buff, 0, sizeof(buff));
     fgets(buff, MAX_BUFF_SIZE-1 , stdin);
+    if(buff[0]=='\n')
+    {
+        return -2;
+    }
     char *p;
     choice = strtol(buff, &p, 0);
     if (choice <= 0)
