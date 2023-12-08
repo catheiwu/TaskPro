@@ -3,6 +3,7 @@
 #include <vector>
 #include "../include/SubTask.h"
 #include "../include/dfs.h"
+#include <iostream>
 
 using namespace std;
 
@@ -142,17 +143,21 @@ int MainTask::deleteSubtask(int index) {
 
 int MainTask::sort() { // by priority
 
-    for (int i = 0; i < allSubtasks.size() - 1; i++)
+    // std::cout << "Size of subtasks: " << allSubtasks.size() << std::endl;
+
+
+    for (int i = 0; i < static_cast<int>(allSubtasks.size()) - 1; i++)
+    {
+        // std::cout << "in sub sort for loop" << i <<"   " << allSubtasks.size() - 1<< std::endl;
+        for (int j = 0; j < static_cast<int>(allSubtasks.size()) - i - 1; j++)
         {
-            for (int j = 0; j < allSubtasks.size() - i - 1; j++)
+            if (allSubtasks[j]->getPriority() > allSubtasks[j + 1]->getPriority())
             {
-                if (allSubtasks[j]->getPriority() > allSubtasks[j + 1]->getPriority())
-                {
-                    SubTask* temp = allSubtasks[j];
-                    allSubtasks[j] = allSubtasks[j + 1];
-                    allSubtasks[j + 1] = temp;
-                }
+                SubTask* temp = allSubtasks[j];
+                allSubtasks[j] = allSubtasks[j + 1];
+                allSubtasks[j + 1] = temp;
             }
         }
-        return 0;
+    }
+    return 0;
 }
