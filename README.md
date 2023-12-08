@@ -56,7 +56,7 @@ For the Deadline, Description, and Priority classes we followed the single respo
  ## Screenshots
  > Screenshots of the input/output after running your application
  ## Installation/Usage
-1) Clone this GitHub repository by copying the hyperlink from the green "code" button on the upper right (code-->local-->https) into the following command: git clone --recursive <repository hyperlink>
+1) Clone this GitHub repository by copying the hyperlink from the green "code" button on the upper right (code-->local-->https) into the following command: git clone --recursive <URL>
 3) Once you have this repo cloned, type these commands into the terminal in the following order:
      1. cd build
      2. cmake ..
