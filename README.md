@@ -38,8 +38,13 @@
 
 
 
-<!--### Screen Layouts
-> Include the layout of each of your screens. The layout should describe the screen’s major components such as menus and prompts for user inputs, expected output, and buttons (if applicable). Explain what is on the layout, and the purpose of each menu item, button, etc. If many screens share the same layout, start by describing the general layout and then list the screens that will be using that layout and the differences between each of them.
+## Screen Layouts
+<img width="245" alt="Welcome screen" src="https://github.com/cs100/final-project-fmoha020-cwu247-bjian018-xwang571/assets/121990200/9482a808-415c-455d-a2d0-b2f6e73ab21d">
+<img width="552" alt="Add Task1 (study finals)" src="https://github.com/cs100/final-project-fmoha020-cwu247-bjian018-xwang571/assets/121990200/fd5bd208-7637-4be3-beae-338292fbaad3">
+<img width="551" alt="Add Task2 (pack for winter break)" src="https://github.com/cs100/final-project-fmoha020-cwu247-bjian018-xwang571/assets/121990200/8a00adce-ea74-468b-8d8e-d920f7ff762f">
+
+
+
 
 ## Class Diagram
  > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
