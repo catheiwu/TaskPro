@@ -56,6 +56,7 @@ For the Deadline, Description, and Priority classes we followed the single respo
  ## Screenshots
  > Screenshots of the input/output after running your application
  ## Installation/Usage
+ ### Build From source.
 1) Clone this GitHub repository by copying the hyperlink from the green "code" button on the upper right (code-->local-->https) into the following command:
 ```
     git clone --recursive https://github.com/cs100/final-project-fmoha020-cwu247-bjian018-xwang571.git
