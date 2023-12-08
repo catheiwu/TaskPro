@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <unistd.h>
 // #include "../include/TaskList.h"
 #include "../include/helperFunctions.h"
 using namespace std;
@@ -12,8 +13,10 @@ int main()
     int start = tl->updateDdl();
     if(start == -1)
     {
-        cout<< "ERROR: LUNCH FAILED! ABORT!"<<endl;
+        cout<< "ERROR: LAUNCH FAILED! ABORT!"<<endl;
     }
+    sleep(1);
+
     printMainMenu();
     
 
