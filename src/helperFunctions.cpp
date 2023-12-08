@@ -195,11 +195,17 @@ void subtaskToAdd(MainTask *maintask)
 
     while (priority == -1 || priority > INFINITY)
     {
+        if (priority == -2) {
+
+            break;
+        }
 
         cout << "Priority must be greater than 0" << endl;
         priority = getUserInputInteger();
     }
-    newSubtask->editPriority(priority);
+    if(priority == -2){
+        newSubtask->editPriority(priority);
+    }
 
     string desc; // prompt for task description
     cout << "Enter description for subtask" << endl;
