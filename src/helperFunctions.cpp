@@ -119,13 +119,21 @@ void taskToAdd(TaskList *taskList)
     cout << "Enter priority for this task" << endl;
     priority = getUserInputInteger();
 
+  
+
     while (priority == -1 || priority > INFINITY)
     {
+        if (priority == -2) {
+
+            break;
+        }
 
         cout << "Priority must be greater than 0" << endl;
         priority = getUserInputInteger();
     }
-    newtask->editPriority(priority);
+    if(priority != -2){
+        newtask->editPriority(priority);
+    }
 
     string desc; // prompt for task description
     cout << "Enter description for task" << endl;
