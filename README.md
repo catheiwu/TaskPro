@@ -56,13 +56,14 @@ For the Deadline, Description, and Priority classes we followed the single respo
  ## Screenshots
  > Screenshots of the input/output after running your application
  ## Installation/Usage
-1) Clone this GitHub repository onto your local IDE or by using terminal. You can do this by pressing the green button on the top of the page.
-2) Once you have this repo cloned, type these commands into terminal in order.
+1) Clone this GitHub repository by copying the hyperlink from the green "code" button on the upper right (code-->local-->https) into the following command: git clone --recursive <repository hyperlink>
+3) Once you have this repo cloned, type these commands into the terminal in the following order:
      1. cd build
      2. cmake ..
      3. make
      4. ./bin/TaskPro.out
-3) Then, this program should run! Keep in mind you only have to run  cmake and make once, then you can just run ./bin/TaskPro.out
+4) Then, this program should run! Keep in mind you only have to run cmake and make once, then you can just run ./bin/TaskPro.out
+5) Use this task manager to add, delete, and edit tasks in your upcoming schedule. Additional features include creating subtasks within a task and sorting lists of tasks by their priorities or deadlines. A display feature allows users to view their list of tasks.
    
 ## Tesing
 We used gtest to test main.cpp, MainTask.cpp, Task.cpp, and TaskList.cpp
