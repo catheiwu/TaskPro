@@ -6,6 +6,7 @@ using namespace std;
 
 int main()
 {
+    cout << "\n\n WELCOME TO TaskPro! \n\n\n";
     string file = "../LIST_OF_TASKS.txt";
     TaskList* tl = new TaskList();
     int start = tl->updateDdl();
