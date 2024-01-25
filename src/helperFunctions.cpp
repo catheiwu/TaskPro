@@ -165,6 +165,20 @@ void taskToAdd(TaskList *taskList)
         cout << "Enter deadline for this task" << endl;
         time_t taskDeadLine = getUserInputDdl();
         newtask->editDdl(taskDeadLine);
+        cout << "Enter recurring days for task" << endl;
+        int recur = getUserInputIntegerForMinute();
+        while (recur == -1 || recur > INFINITY)
+    {
+        if (recur == -2) {
+
+            break;
+        }
+
+        cout << "recur must be an integer greater or equal than 0:" << endl;
+        recur = getUserInputIntegerForMinute();
+        newtask->editRecurringEventTime(recur);
+    }
+
     }
 
     taskList->addTask(newtask);
@@ -288,12 +302,13 @@ void taskToEdit(TaskList *taskList)
     cout << "Enter 2 - Edit task description." << endl;
     cout << "Enter 3 - Edit task priority." << endl;
     cout << "Enter 4 - Edit task deadline." << endl;
-    cout << "Enter 5 - Add Subtask." << endl;
-    cout << "Enter 6 - Edit Subtask." << endl;
-    cout << "Enter 7 - Delete Subtask." << endl;
+    cout << "Enter 5 - Edit task recurring day." << endl;
+    cout << "Enter 6 - Add Subtask." << endl;
+    cout << "Enter 7 - Edit Subtask." << endl;
+    cout << "Enter 8 - Delete Subtask." << endl;
     int taskEditNum;
     taskEditNum = getUserInputInteger();
-    while (taskEditNum == -1 || taskEditNum > 7)
+    while (taskEditNum == -1 || taskEditNum > 8)
     {
         cout << "Invalid choice. Please enter a number between 1 and 7.\n";
         taskEditNum = getUserInputInteger();
@@ -347,15 +362,32 @@ void taskToEdit(TaskList *taskList)
         cout << endl << endl;
         printMainMenu();
     }
-    else if (taskEditNum == 5)
+    else if(taskEditNum == 5)
     {
-        subtaskToAdd(taskList->getAllTasks().at(taskIndex - 1));
+        cout << "current recuring day:" <<taskList->getAllTasks().at(taskIndex - 1)->getRecurringEventTime()<<endl;
+        cout << "What recurring day should this task be?\n";
+        
+        int recur;
+        recur = getUserInputIntegerForMinute();
+        while (recur == -1 || recur > INFINITY)
+        {
+            cout << "Invalid choice. Please enter a valid number for recurring day.\n";
+            recur = getUserInputIntegerForMinute();
+        }
+        taskList->getAllTasks().at(taskIndex - 1)->editRecurringEventTime(recur);
+        cout << endl << endl;
+        printMainMenu();
+
     }
     else if (taskEditNum == 6)
     {
-        subtaskToEdit(taskList->getAllTasks().at(taskIndex - 1),taskList);
+        subtaskToAdd(taskList->getAllTasks().at(taskIndex - 1));
     }
     else if (taskEditNum == 7)
+    {
+        subtaskToEdit(taskList->getAllTasks().at(taskIndex - 1),taskList);
+    }
+    else if (taskEditNum == 8)
     {
         subtaskToDelete(taskList->getAllTasks().at(taskIndex - 1),taskList);
     }
